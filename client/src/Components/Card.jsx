@@ -23,7 +23,7 @@ const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,t
   const token = user.token;
 
   const handleVisit = () => {
-    const link = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/u/${username}`;
+    const link = `https://leetcode.com/u/${username}`;
     window.open(link, '_blank'); 
   };
 
