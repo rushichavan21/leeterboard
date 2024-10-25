@@ -9,7 +9,7 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     background: rgba(0, 0, 0, 0.693); /* Light background for contrast */
-    z-index: 999; /* Ensure it's on top */
+    z-index: 9999; /* Ensure it's on top */
     
   }
   
