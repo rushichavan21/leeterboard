@@ -241,7 +241,10 @@ height: 20px;
 .AddUserNameFunction input{
 font-size: 16px;
 }
-
+.AddUserNameFunction{
+  flex-direction: column;
+  justify-content: center;
+}
 .AddUserNameFunction input::placeholder{
   font-size: 14px;
 }
