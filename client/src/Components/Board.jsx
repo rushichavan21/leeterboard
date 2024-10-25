@@ -182,7 +182,7 @@ const Board = ({setIsLoading,isLoading}) => {
       ))}
 
       
-      {arrayData.length<10? <div className="AddUserNameFunction">
+      {arrayData.length<10? <div className="AddUserNameFunction container">
         <input
           type="text"
           placeholder="Enter the username"
