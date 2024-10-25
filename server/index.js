@@ -11,7 +11,9 @@ const { authMiddleware } = require("./authMiddleWares/auth");
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://leeterboard-compete.vercel.app',
+}));
 // signup request
 
 
