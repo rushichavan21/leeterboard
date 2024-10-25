@@ -1,0 +1,80 @@
+.BoardWrapper{
+    background-color: rgb(25, 25,25);
+    margin: 4rem 0;
+    padding: 2rem;
+    border-radius: 4rem;
+   border: 0px solid rgba(255, 255, 255, 0.686);
+   display: flex;
+    align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.between{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+margin: 2rem;
+}
+.between img{
+    max-width: 75px;
+}
+
+.between h1{
+font-weight: 300;
+font-size: 50px;
+padding: 0 20px;
+}
+
+
+/* Add User name Css */
+.AddUserNameFunction {
+    padding: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 50%; */
+    /* background-color:  rgba(0, 0, 0, 0.332); */
+    border-radius: 1rem;
+}
+.AddUserNameFunction input{
+
+border-radius: 2rem;
+padding: 0.25rem;
+color: white;
+font-weight: 400;
+text-align: center;
+background-color: #282727;
+border: 1px solid white;
+font-family: poppins;
+font-size: 20px;
+
+}
+.AddUserNameMessage{
+    padding: 1rem 0;
+  
+}
+.AddUserNameMessage h1{
+    font-weight: 300;
+}
+.AddUserNameFunction input::placeholder {
+    color:white; 
+    font-size: 18px; 
+    font-family: 'poppins', sans-serif; 
+    font-weight: 200;
+    padding-left: 10px;
+  }
+  .AdduserNameButtons,.addUsernameInput{
+    margin: 0 10px 0 10px;
+   }
+   .usernameError{
+
+    background-color: rgba(177, 74, 74, 0.648);
+    color:white;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2rem;
+    width: 30%;
+   }

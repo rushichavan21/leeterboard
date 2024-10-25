@@ -1,0 +1,39 @@
+
+  .loaderDiv {
+    position: fixed; /* Change to fixed for full screen */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background: rgba(0, 0, 0, 0.693); /* Light background for contrast */
+    z-index: 999; /* Ensure it's on top */
+    
+  }
+  
+  .loaderDiv h3{
+    font-weight: 300;
+    font-size: 2rem;
+  }
+
+.loader {
+    width: 45px;
+    margin-right: 3rem;
+    aspect-ratio: 1;
+    --c:no-repeat linear-gradient(#ffffff 0 0);
+    background: 
+      var(--c) 0    0,
+      var(--c) 0    100%, 
+      var(--c) 50%  50%,   
+      var(--c) 100% 0, 
+      var(--c) 100% 100%;
+    animation: l13 1s infinite alternate;
+  }
+  
+  @keyframes l13 {
+   0%,10%   {background-size:20% 100%}
+   50%      {background-size:20%  20%}
+   90%,100% {background-size:100% 20%}
+  }

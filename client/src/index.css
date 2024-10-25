@@ -1,0 +1,299 @@
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+
+
+
+}
+
+body{
+  background-color: rgb(25, 25,25);
+}
+
+.container {
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  /* border: 1px solid red; */
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+  
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+  .signupPage{
+    flex-direction: row;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+  .signupPage{
+    flex-direction: row;
+  }
+  .namePlate{
+    text-align: center;
+  }
+  .signup-form{
+    font-size: 30px;
+  }
+  .between h1{
+    font-size: 30px;
+  }
+  .between img{
+    max-width: 50px;
+  }
+  .info h3{
+    font-size: 15px;
+  }
+  .Buttons{
+    transform: scale(0.8);
+  }
+  .addUsernameInput{
+    transform: scale(0.8);
+  }
+  .userData{
+    transform: scale(0.8 );
+  }
+  .easy{
+    transform: scale(0.9);
+  }
+  .medium{
+    transform: scale(0.9);
+  }
+  .hard{
+    transform: scale(0.9);
+  }
+  .buttonsDiv{
+    margin: 10px 0 0 0;
+  }
+  .optionsWrapper div button{
+    margin: 1rem;
+    padding: 0.5rem;
+    }
+  .AddUserNameMessage h1{
+    font-size: 24px;
+  } 
+     
+}
+
+/* md */
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+  .signupPage{
+    flex-direction: column;
+  }
+  .userData{
+    transform: scale(0.7);
+  }
+  .CardWrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .buttonsDiv{
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+  }
+  .info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .stats{
+    width: 100%;
+  }
+  .optionsWrapper div h3{
+    font-weight: 300;
+    font-size: 20px;
+}
+.optionsWrapper div button{
+  margin: 0.5rem;
+  padding: 0.5rem;
+  
+  }
+
+
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+
+  .subtitle{
+    max-width: 25ch;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .between{
+  margin-bottom: 0;
+  }
+  .BoardWrapper{
+    margin-top: 0.75rem;
+    
+  }
+  .AddUserNameFunction{
+    margin: 0;
+    padding: 0.5rem;
+  }
+  .AddUserNameMessage h1{
+    font-size: 20px;
+  } 
+  .usernameError{
+    width: 70%;
+    font-size: 15px;
+    padding: 5px;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .container {
+    width: 100%;
+  }
+
+.title h2{
+font-size: 25px;
+font-weight: 300;
+padding-left: 15px;
+}
+.userData h2{
+font-size: 12px;
+font-weight: 300;
+padding: 4px;
+margin-right: 0%;
+}
+.userData button{
+border: 2px solid white;
+}
+.Navbar{
+  justify-content: space-around;
+}
+.BoardWrapper{
+  margin: 0.75rem 0;
+  
+}
+.CardWrapper{
+  max-width: 95%;
+}
+.infoInfo h3{
+  font-size: 14px;
+}
+.info{
+  padding:0  0.75rem 0 1rem ;
+}
+.buttonsDiv{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  /* width: 30%; */
+  max-width: 40%;
+  padding: 0;
+  margin: 0%;
+}
+.visit ,.remove{
+  transform: scale(0.8);
+  margin: 0%;
+  margin: 0px 0;
+}
+.progress-bar-container{
+width: 80%;
+height: 20px;
+}
+
+.stats div span{
+  font-size: 15px;
+}
+.optionsWrapper{
+  max-width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.create button{
+  font-size: 14px;
+}
+.moreFeatures button{
+ font-size: 14px;
+}
+.AddUserNameFunction input{
+font-size: 16px;
+}
+
+.AddUserNameFunction input::placeholder{
+  font-size: 14px;
+}
+.AdduserNameButtons,.addUsernameInput{
+font-size: 16px;
+margin-left: 0;
+}
+  .title {
+    font-size: 45px;
+    text-align: center;
+  }
+  
+  .login-form{
+    max-width: 300px;
+    font-size: 40px;
+  }
+  .login-form h2{
+    font-weight: 400;
+  }
+
+  .footer{
+    text-align: center;
+  }
+  .footer p{
+    font-size: 20px;
+  }
+  .input-group label,input,.login-button{
+    font-weight: 500;
+  }
+   .namePlate{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   }
+
+ .AddUserNameMessage{
+  font-size: 18px;
+ }
+ 
+.loader{
+transform: scale(0.8);
+}
+
+.usernameError{
+  width: 70%;
+  font-size: 14px;
+}
+.subtitle{
+  margin: 0%;
+  padding: 10px 0;
+}
+.signup-form{
+  margin-bottom: 3rem;
+}
+}
+

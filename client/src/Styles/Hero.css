@@ -1,0 +1,14 @@
+.HeroPage{
+    position: absolute;
+background-color: rgb(25, 25,25);
+color: aliceblue;
+width: 100%;
+height: auto;
+
+}
+.space{
+    padding: 2rem;
+    text-align: center;
+    font-weight: 300;
+    font-style: italic;
+}

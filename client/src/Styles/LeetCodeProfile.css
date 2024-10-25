@@ -1,0 +1,91 @@
+.leetcode-profile {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #424242;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color:aliceblue;
+    margin: 100px 0 0 0;
+    padding-bottom: 100px;
+  }
+  
+  .leetcode-profile h1 {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 250;
+  }
+  
+  .leetcode-profile p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .leetcode-profile h2 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: aliceblue;
+  }
+  
+  .leetcode-profile ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .leetcode-profile li {
+    background-color: rgb(25, 25,25);
+    border: 1px solid black;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .leetcode-profile li strong {
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  .leetcode-profile li span {
+    font-size: 0.9rem;
+    color: white;
+  }
+  
+  
+  
+  .leetcode-profile .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .leetcode-profile .error {
+    text-align: center;
+    font-size: 1.2rem;
+    color: red;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 600px) {
+    .leetcode-profile {
+      padding: 15px;
+    }
+  
+    .leetcode-profile h1 {
+      font-size: 1.6rem;
+    }
+  
+    .leetcode-profile p {
+      font-size: 1rem;
+    }
+  
+    .leetcode-profile h2 {
+      font-size: 1.3rem;
+    }
+  }
+  

@@ -1,0 +1,53 @@
+
+.userData,title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.userData h2{
+    font-size: 18px;
+  margin: 0%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+   background-color: #424242;
+   font-weight: 300;
+   
+}
+.title{
+    margin: 0%;
+}
+.Navbar {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    max-height: 5rem;
+    padding: 2rem 0.75rem;
+}
+
+.title h2 {
+    font-size: 30px;
+   font-weight: 250;
+    margin: 0; 
+    padding: 0%;
+    cursor: pointer;
+}
+
+
+
+.Buttons{
+    background-color: rgb(25, 25,25);
+    border: 1.75px solid rgba(255, 255, 255, 0.748);
+    color: rgba(255, 255, 255, 0.789);
+    border-radius: 1rem;
+    padding: 3px 20px 3px 20px;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 20px;
+}
+.Buttons:hover{
+    background-color: white;
+    color:  black;
+    font-weight: 300;
+}
