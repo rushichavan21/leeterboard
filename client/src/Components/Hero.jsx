@@ -23,7 +23,7 @@ const Loader=()=>{
   return(
     
     <div className="loaderDiv">
-    <div class="loader"></div>
+    <div className="loader"></div>
     <h3>Loading...</h3>
     </div>
 

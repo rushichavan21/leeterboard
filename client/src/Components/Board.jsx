@@ -1,18 +1,114 @@
 import React, { useEffect, useState } from "react";
-import "../Styles/Board.css";
-import Card from "./Card";
 import axios from "axios";
+import Card from "./Card";
+import "../Styles/Board.css";
 import { useAuthContext } from "../Hooks/useAuthContext";
 
+const Board = ({ setIsLoading, isLoading }) => {
 
-const Board = ({setIsLoading,isLoading}) => {
+
+  // Imports
   const { user } = useAuthContext();
   const token = user.token;
   const [leetcodeData, setLeetcodeData] = useState([]);
   const [newUsername, setNewUsername] = useState("");
   const [arrayData, setArrayData] = useState([]);
-  const [usernameError,setUsernameError]=useState(0);
+  const [usernameError, setUsernameError] = useState(0);
+  let newUsernameToUpdate = "";
 
+
+
+
+  // This function will fetch the single username ans add it to a exsisting array
+  const fetchSingleUsernameData = async () => {
+    const trimmedUsername = newUsername.trim();
+    if (trimmedUsername === "") return;
+    newUsernameToUpdate = trimmedUsername;
+    setNewUsername("");
+    try {
+      const response = await axios.get(
+        `${
+          import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
+        }/data/${trimmedUsername}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.data) {
+        const newData = {
+          username: trimmedUsername,
+          leetcodeData: response.data,
+        };
+        const updatedData = [...leetcodeData, newData].sort(
+          (a, b) => b.leetcodeData.totalSolved - a.leetcodeData.totalSolved
+        );
+        setLeetcodeData(updatedData);
+      }else{
+        setUsernameError(1);
+      }
+    } catch (err) {
+      setUsernameError(1);
+      console.error("Error fetching user data:", err);
+    }
+  };
+
+
+
+// After adding the new username this function will add the new username to the database
+  const UpdateNewUsernameToDatabase = async () => {
+    if (newUsernameToUpdate === "") {
+      setIsLoading(0);
+      return;
+    }
+    if (newUsernameToUpdate) {
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/addUsername`,
+          { username: newUsernameToUpdate },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.data.leetcodeUsernames) {
+          console.log(
+            "Username successfully added:",
+            response.data.leetcodeUsernames
+          );
+        } else {
+          console.log("Error adding username:", response.data.message);
+        }
+      } catch (error) {
+        console.error(
+          "Error adding username:",
+          error.response ? error.response.data : error.message
+        );
+      }
+    } else {
+      console.log("Username is empty");
+    }
+  };
+
+
+
+
+  // Main onclick function for "Add-username"
+  const handleAddUsername = async () => {
+    setIsLoading(1);
+    await fetchSingleUsernameData();
+    setIsLoading(0);
+    await UpdateNewUsernameToDatabase();
+    newUsernameToUpdate = "";
+    console.log("username updated");
+  };
+
+
+
+ // Fetch the leetcode stats from the UserNames Array on the database 
   const fetchLeetcodeData = async () => {
     const data = [];
     setIsLoading(1);
@@ -50,14 +146,19 @@ const Board = ({setIsLoading,isLoading}) => {
     }
   };
 
+
+  // fetches the entire array of usernames
   const fetchUsernamesArray = async () => {
     try {
       setIsLoading(1);
-      const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/getArray`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/getArray`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setArrayData(response.data.leetcodeUsernames);
       setIsLoading(0);
     } catch (error) {
@@ -71,6 +172,8 @@ const Board = ({setIsLoading,isLoading}) => {
   const handleUsernameChange = (e) => {
     setNewUsername(e.target.value.trimStart());
   };
+
+    // UseEffecs are lined below
 
   useEffect(() => {
     const fetchUsername = async () => {
@@ -89,87 +192,39 @@ const Board = ({setIsLoading,isLoading}) => {
       fetchUsernamesArray();
       console.log(arrayData);
     }
-  }, [newUsername]);
-
+  }, []);
+  
   useEffect(() => {
     if (arrayData.length >= 0) {
       fetchLeetcodeData();
     }
   }, [arrayData]);
-
-
+  
   useEffect(() => {
     let timer;
     if (usernameError === 1) {
-    
       timer = setTimeout(() => {
         setUsernameError(0);
       }, 7000);
     }
-    
 
     return () => clearTimeout(timer);
   }, [usernameError]);
 
 
-
-
-  const handleAddUsername = async () => {
-  
-    setIsLoading(1);
-    const trimmedUsername = newUsername.trim();
-    if(trimmedUsername===""){
-      setIsLoading(0)
-     return;
-    }
-    setNewUsername("");
-    if (trimmedUsername) {
-      try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/addUsername`,
-          { username: trimmedUsername },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (response.data.leetcodeUsernames) {
-          console.log(
-            "Username successfully added:",
-            response.data.leetcodeUsernames
-          );
-          fetchUsernamesArray();
-        } else {
-          console.log("Error adding username:", response.data.message);
-        }
-        setIsLoading(0);
-      } catch (error) {
-        setUsernameError(1);
-        console.error(
-          "Error adding username:",
-          error.response ? error.response.data : error.message
-        );
-      }
-    } else {
-      console.log("Username is empty");
-    }
-  };
-
   return (
     <div className="BoardWrapper container">
-      {arrayData.length===0 ? (
+      {arrayData.length === 0 ? (
         <div className="AddUserNameMessage">
           <h1>Your LeeterBoard seems Empty !!</h1>
         </div>
       ) : null}
       {leetcodeData.map((userData, index) => (
-        <Card 
-          key={index} 
-          username={userData.username} 
-          rank={index+1} 
-          totalQuestions={userData.leetcodeData.totalSolved} 
+        <Card
+          key={index}
+          username={userData.username}
+          rank={index + 1}
+          totalQuestions={userData.leetcodeData.totalSolved}
           easySolved={userData.leetcodeData.easySolved}
           mediumSolved={userData.leetcodeData.mediumSolved}
           hardSolved={userData.leetcodeData.hardSolved}
@@ -181,20 +236,28 @@ const Board = ({setIsLoading,isLoading}) => {
         />
       ))}
 
-      
-      {arrayData.length<10? <div className="AddUserNameFunction container">
-        <input
-          type="text"
-          placeholder="Enter the username"
-          value={newUsername}
-          onChange={handleUsernameChange}
-          className="addUsernameInput"
-        /> 
-        <button className="Buttons AdduserNameButtons" onClick={handleAddUsername}>
-          Add
-        </button>
-        </div>:null}
-        {usernameError?<div className="usernameError container">enter a valid Leetcode username</div>:null}
+      {arrayData.length < 10 ? (
+        <div className="AddUserNameFunction container">
+          <input
+            type="text"
+            placeholder="Enter the username"
+            value={newUsername}
+            onChange={handleUsernameChange}
+            className="addUsernameInput"
+          />
+          <button
+            className="Buttons AdduserNameButtons"
+            onClick={handleAddUsername}
+          >
+            Add
+          </button>
+        </div>
+      ) : null}
+      {usernameError ? (
+        <div className="usernameError container">
+          enter a valid Leetcode username
+        </div>
+      ) : null}
     </div>
   );
 };
