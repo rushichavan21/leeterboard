@@ -19,7 +19,7 @@ const Board = ({ setIsLoading, isLoading }) => {
 
 
 
-  // This function will fetch the single username ans add it to a exsisting array
+  // This function will fetch the single username and will add it to the exsisting array
   const fetchSingleUsernameData = async () => {
     const trimmedUsername = newUsername.trim();
     if (trimmedUsername === "") return;
@@ -233,10 +233,13 @@ const Board = ({ setIsLoading, isLoading }) => {
           totalHard={userData.leetcodeData.totalHard}
           arrayData={arrayData}
           setArrayData={setArrayData}
+          leetcodeData={leetcodeData}
+          setLeetcodeData={setLeetcodeData}
+          setIsLoading={setIsLoading}
         />
       ))}
 
-      {arrayData.length < 10 ? (
+      {leetcodeData.length < 10 ? (
         <div className="AddUserNameFunction container">
           <input
             type="text"

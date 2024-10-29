@@ -18,7 +18,7 @@ const ProgressBar = ({ progress, styles,numerator,denominator}) => {
   };
   
 
-const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,arrayData,setArrayData}) => {
+const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,arrayData,setArrayData,leetcodeData,setLeetcodeData,setIsLoading}) => {
   const { user } = useAuthContext();
   const token = user.token;
 
@@ -27,27 +27,36 @@ const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,t
     window.open(link, '_blank'); 
   };
 
+// This function removes the user Card from the frontend only
 
-  const handleRemove = async (usernameToRemove) => {
-    try {
-      const response = await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/removeUsername`, {
-        data: { username: usernameToRemove }, 
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
-      console.log("Username removed:", response.data.leetcodeUsernames);
-  
-     
-      const updatedArrayData = arrayData.filter((uname) => uname !== usernameToRemove);
-      setArrayData(updatedArrayData);
-      
-    } catch (error) {
-      console.error("Error removing username:", error.response ? error.response.data : error.message);
-    }
-  };
-  
+  const removeSingleUsername = async (usernameToRemove) => {
+    setIsLoading(true);
+
+    const updatedLeetcodeData = leetcodeData.filter((element) => element.username !== usernameToRemove);
+    setLeetcodeData(updatedLeetcodeData);
+
+    setIsLoading(false);
+}
+
+// This function removes the Username from the Database
+
+const removeFromDatabase=async (usernameToRemove)=>{
+  const response = await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/removeUsername`, {
+          data: { username: usernameToRemove }, 
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+    
+        console.log("Username removed:", response.data.leetcodeUsernames);
+}
+  const handleRemove=async(usernameToRemove)=>{
+   await removeSingleUsername(usernameToRemove)
+   console.log("user Removed");
+   await removeFromDatabase(usernameToRemove);
+   console.log("username removed from the database");
+
+  }
 
   const easyPercentage = parseFloat(((easySolved / totalEasy) * 100).toFixed(2));
   const mediumPercentage = parseFloat(((mediumSolved / totalMedium) * 100).toFixed(2));
