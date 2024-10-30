@@ -52,9 +52,8 @@ const removeFromDatabase=async (usernameToRemove)=>{
 }
   const handleRemove=async(usernameToRemove)=>{
    await removeSingleUsername(usernameToRemove)
-   console.log("user Removed");
    await removeFromDatabase(usernameToRemove);
-   console.log("username removed from the database");
+   
 
   }
 

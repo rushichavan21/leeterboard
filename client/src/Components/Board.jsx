@@ -19,7 +19,7 @@ const Board = ({ setIsLoading, isLoading }) => {
 
 
 
-  // This function will fetch the single username and will add it to the exsisting array
+  // This function will fetch the single username and will add it to the existing array
   const fetchSingleUsernameData = async () => {
     const trimmedUsername = newUsername.trim();
     if (trimmedUsername === "") return;
@@ -103,7 +103,6 @@ const Board = ({ setIsLoading, isLoading }) => {
     setIsLoading(0);
     await UpdateNewUsernameToDatabase();
     newUsernameToUpdate = "";
-    console.log("username updated");
   };
 
 
@@ -113,8 +112,6 @@ const Board = ({ setIsLoading, isLoading }) => {
     const data = [];
     setIsLoading(1);
     try {
-      console.log(`Inside the function ${arrayData}`);
-
       for (const username of arrayData) {
         const response = await axios.get(
           `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/data/${username}`,
@@ -136,7 +133,6 @@ const Board = ({ setIsLoading, isLoading }) => {
       );
 
       setLeetcodeData(sortedData);
-      console.log("Sorted LeetCode Data:", sortedData);
       setIsLoading(0);
     } catch (error) {
       console.error(
@@ -183,16 +179,6 @@ const Board = ({ setIsLoading, isLoading }) => {
     fetchUsername();
   }, []);
 
-  useEffect(() => {
-    console.log(arrayData);
-  }, [arrayData]);
-
-  useEffect(() => {
-    if (newUsername === "") {
-      fetchUsernamesArray();
-      console.log(arrayData);
-    }
-  }, []);
   
   useEffect(() => {
     if (arrayData.length >= 0) {
