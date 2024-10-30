@@ -225,7 +225,7 @@ const Board = ({ setIsLoading, isLoading ,toast }) => {
 
   return (
     <div className="BoardWrapper container">
-      {arrayData.length === 0 ? (
+      {leetcodeData.length === 0 ? (
         <div className="AddUserNameMessage">
           <h1>Your LeeterBoard seems Empty !!</h1>
         </div>
