@@ -1,4 +1,5 @@
 import React from 'react'
+import toast ,{Toaster} from 'react-hot-toast'
 import '../Styles/Hero.css'
 import Navbar from './Navbar'
 import LeetCodeProfile from './LeetCodeProfile'
@@ -34,9 +35,13 @@ const Hero = () => {
   const [isLoading,setIsLoading]=useState(0);
   return (
     <div className='HeroPage'> 
+    <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
     <Navbar/>
    <Between/>  
-    <Board isLoading={isLoading} setIsLoading={setIsLoading}/>
+    <Board isLoading={isLoading} setIsLoading={setIsLoading} toast={toast}/>
     <Options/>
     {isLoading?<Loader/>:null}
     <div className='space'>work in progress!!</div>

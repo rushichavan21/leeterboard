@@ -1,4 +1,5 @@
 import React from "react";
+import toast, { Toaster } from "react-hot-toast";
 import "../Styles/SignupPage.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -13,10 +14,6 @@ const SignupPage = () => {
     confirmPassword: "",
   });
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [isLoading, setIsLoading] = useState(null);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -27,18 +24,37 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      toast.error("Passwords do not match!", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+          fontWeight: "400",
+          fontFamily: "Poppins, sans-serif",
+        },
+      });
       return;
     }
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/signup`, {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
+      toast.success("loading...", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+          fontWeight: "400",
+          fontFamily: "Poppins, sans-serif",
+        },
       });
+      const response = await axios.post(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/signup`,
+        {
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       const json = response.data;
 
@@ -46,27 +62,37 @@ const SignupPage = () => {
       localStorage.setItem("user", JSON.stringify(json));
       // update the auth context
       dispatch({ type: "LOGIN", payload: json });
-      setIsLoading(false);
-      setSuccess("Signup successful!");
-      setError("");
+      toast.success("Signup successful!", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+          fontWeight: "400",
+          fontFamily: "Poppins, sans-serif",
+        },
+      });
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed. Please try again."); 
-      setSuccess("");
-
+      toast.error("Signup failed. please try again", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+          fontWeight: "400",
+          fontFamily: "Poppins, sans-serif",
+        },
+      });
     }
   };
   return (
     <div className="landing-container signupPage">
+      <Toaster position="top-center" reverseOrder={true} />
       <div className="namePlate container">
         <div className="title">LeeterBoard</div>
         <div className="subtitle">
           Create an account and join the competition!
         </div>
 
-        <div>
-          {error && <p className="error-message">{`${error}`}</p>}
-          {success && <p className="success-message">{success}</p>}
-        </div>
+        <div></div>
       </div>
 
       <div className="login-form signup-form container">

@@ -4,7 +4,7 @@ import Card from "./Card";
 import "../Styles/Board.css";
 import { useAuthContext } from "../Hooks/useAuthContext";
 
-const Board = ({ setIsLoading, isLoading }) => {
+const Board = ({ setIsLoading, isLoading ,toast }) => {
 
 
   // Imports
@@ -45,11 +45,27 @@ const Board = ({ setIsLoading, isLoading }) => {
           (a, b) => b.leetcodeData.totalSolved - a.leetcodeData.totalSolved
         );
         setLeetcodeData(updatedData);
-      }else{
-        setUsernameError(1);
+        toast.success(`${trimmedUsername} was added successfully`,
+          {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
       }
     } catch (err) {
-      setUsernameError(1);
+
+      toast.error('Please Enter a valid Leetcode username',
+        {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
       console.error("Error fetching user data:", err);
     }
   };
@@ -139,6 +155,15 @@ const Board = ({ setIsLoading, isLoading }) => {
         "Error fetching LeetCode data:",
         error.response ? error.response.data : error.message
       );
+      toast.error("error fetching leetcode data", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+          fontWeight: "400",
+          fontFamily: "Poppins, sans-serif",
+        },
+      });
     }
   };
 
@@ -222,6 +247,7 @@ const Board = ({ setIsLoading, isLoading }) => {
           leetcodeData={leetcodeData}
           setLeetcodeData={setLeetcodeData}
           setIsLoading={setIsLoading}
+          toast={toast}
         />
       ))}
 

@@ -18,7 +18,7 @@ const ProgressBar = ({ progress, styles,numerator,denominator}) => {
   };
   
 
-const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,arrayData,setArrayData,leetcodeData,setLeetcodeData,setIsLoading}) => {
+const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,arrayData,setArrayData,leetcodeData,setLeetcodeData,setIsLoading,toast}) => {
   const { user } = useAuthContext();
   const token = user.token;
 
@@ -36,6 +36,15 @@ const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,t
     setLeetcodeData(updatedLeetcodeData);
 
     setIsLoading(false);
+    toast.success(`${usernameToRemove} was removed `, {
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+        fontWeight: "400",
+        fontFamily: "Poppins, sans-serif",
+      },
+    });
 }
 
 // This function removes the Username from the Database

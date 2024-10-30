@@ -1,4 +1,5 @@
 import React from 'react';
+import toast ,{Toaster} from 'react-hot-toast'
 import '../Styles/Login.css';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
@@ -11,9 +12,6 @@ const Login = () => {
     password: "",
   });
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,6 +23,15 @@ const Login = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault();
    try {
+    toast('Please Wait', {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+        fontWeight: '400',
+        fontFamily: 'Poppins, sans-serif',
+      },
+    });
     const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/login`, {
       username: formData.username,
       email: formData.email,
@@ -33,25 +40,50 @@ const Login = () => {
     const json = response.data;
     localStorage.setItem("user", JSON.stringify(json));
     dispatch({ type: "LOGIN", payload: json });
-    setSuccess("Signin successful!");
-      setError("");
+    toast.success("Login success",{
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    })
    } catch (err) {
     if (err.response && err.response.status === 404) {
-      setError("User not found. Please sign up first.");
+      toast.error("User not found. Please sign up first.",{
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+          fontFamily:'poppins',
+          fontWeight:'500'
+        },
+      })
     } else if (err.response && err.response.status === 401) {
-      setError("Incorrect password. Please try again.");
+      toast.error("Incorrect password. Please try again.",{
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      })
     } else {
-      setError("An error occurred. Please try again.");
+      toast.error("An Error occurred.Please try again.",{
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      })
     }
-
-    setError(err.response?.data?.message || "Login failed. Please try again."); 
-      setSuccess("");
-
    }
   }
 
   return (
     <div className='landing-container '>
+      <Toaster
+  position="top-center"
+  reverseOrder={true}
+/>
    
       <div className='title container'>
         Leeter-Board
@@ -92,8 +124,6 @@ const Login = () => {
       <div className='footer container'>
         <p>Don't have an account? <Link to='/signup'>signup</Link></p>
       </div>
-      {error && <p className="error-message">{`${error}`}</p>}
-      {success && <p className="success-message">{success}</p>}
     </div>
   )
 }
