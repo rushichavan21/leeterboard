@@ -220,7 +220,7 @@ const Board = ({toast}) => {
     <div className="BoardWrapper container">
       {leetcodeData.length === 0 ? (
         <div className="AddUserNameMessage">
-          <h1>Add your coding group here, check real-time ranks, compete, and climb to the top of your custom leaderboard!</h1>
+          <h1>Add your leetcode group here, check real-time ranks, compete, and climb to the top of your custom leaderboard!</h1>
         </div>
       ) : null}
       {leetcodeData.map((userData, index) => (
