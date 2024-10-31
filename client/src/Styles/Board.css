@@ -53,10 +53,13 @@ font-size: 20px;
 }
 .AddUserNameMessage{
     padding: 1rem 0;
+    text-align: center;
   
 }
 .AddUserNameMessage h1{
-    font-weight: 300;
+    font-weight: 200;
+    max-width: 40ch;
+    color: 	#FADA5E;
 }
 .AddUserNameFunction input::placeholder {
     color:white; 

@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect} from "react";
 import axios from "axios";
+import { useAuthContext } from "../Hooks/useAuthContext";
 import Card from "./Card";
 import "../Styles/Board.css";
-import { useAuthContext } from "../Hooks/useAuthContext";
+import { useSetRecoilState , useRecoilState} from "recoil";
+import { loadingAtom , leetcodeDataAtom, usernameAtom, arrayDataAtom} from "../Atoms/Atoms";
 
-const Board = ({ setIsLoading, isLoading ,toast }) => {
+
+const Board = ({toast}) => {
+
+  let newUsernameToUpdate = "";
 
 
   // Imports
   const { user } = useAuthContext();
   const token = user.token;
-  const [leetcodeData, setLeetcodeData] = useState([]);
-  const [newUsername, setNewUsername] = useState("");
-  const [arrayData, setArrayData] = useState([]);
-  const [usernameError, setUsernameError] = useState(0);
-  let newUsernameToUpdate = "";
+  const setIsLoading=useSetRecoilState(loadingAtom);
+  const [arrayData, setArrayData] = useRecoilState(arrayDataAtom);
+  const [newUsername, setNewUsername] = useRecoilState(usernameAtom);
+  const [leetcodeData,setLeetcodeData]=useRecoilState(leetcodeDataAtom);
+  
 
 
 
@@ -211,23 +216,11 @@ const Board = ({ setIsLoading, isLoading ,toast }) => {
     }
   }, [arrayData]);
   
-  useEffect(() => {
-    let timer;
-    if (usernameError === 1) {
-      timer = setTimeout(() => {
-        setUsernameError(0);
-      }, 7000);
-    }
-
-    return () => clearTimeout(timer);
-  }, [usernameError]);
-
-
   return (
     <div className="BoardWrapper container">
       {leetcodeData.length === 0 ? (
         <div className="AddUserNameMessage">
-          <h1>Your LeeterBoard seems Empty !!</h1>
+          <h1>Add your coding group here, check real-time ranks, compete, and climb to the top of your custom leaderboard!</h1>
         </div>
       ) : null}
       {leetcodeData.map((userData, index) => (
@@ -266,11 +259,6 @@ const Board = ({ setIsLoading, isLoading ,toast }) => {
           >
             Add
           </button>
-        </div>
-      ) : null}
-      {usernameError ? (
-        <div className="usernameError container">
-          enter a valid Leetcode username
         </div>
       ) : null}
     </div>

@@ -1,13 +1,12 @@
 import React from 'react'
 import toast ,{Toaster} from 'react-hot-toast'
-import '../Styles/Hero.css'
+import { useRecoilValue } from 'recoil'
+import { loadingAtom } from '../Atoms/Atoms'
 import Navbar from './Navbar'
-import LeetCodeProfile from './LeetCodeProfile'
-import Options from './Options'
 import Board from './Board'
-import Card from './Card'
+import Options from './Options'
+import '../Styles/Hero.css'
 import '../Styles/loader.css'
-import { useState } from 'react'
 
 const Between=()=>{
 return (
@@ -32,7 +31,7 @@ const Loader=()=>{
 }
 
 const Hero = () => {
-  const [isLoading,setIsLoading]=useState(0);
+  const isLoading=useRecoilValue(loadingAtom);
   return (
     <div className='HeroPage'> 
     <Toaster
@@ -41,7 +40,7 @@ const Hero = () => {
 />
     <Navbar/>
    <Between/>  
-    <Board isLoading={isLoading} setIsLoading={setIsLoading} toast={toast}/>
+    <Board toast={toast}/>
     <Options/>
     {isLoading?<Loader/>:null}
     <div className='space'>work in progress!!</div>
