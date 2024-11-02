@@ -1,0 +1,155 @@
+.snapPage--main--div{
+    color: aliceblue;
+    font-size: 1.5rem;
+  
+}
+.snapPage--info{
+  color: rgb(249, 230, 153);
+}
+.snapPage--info div{
+   padding: 1rem 0 1rem 0;
+   font-weight: 200;
+}
+.snapPageInput{
+border-radius: 2rem;
+padding: 0.25rem;
+color: white;
+font-weight: 400;
+text-align: center;
+background-color: #282727;
+border: 1px solid white;
+font-family: poppins;
+font-size: 20px;
+width: 300px;
+margin-right: 1rem;
+}
+.snapPageInput::placeholder{
+    color:white; 
+    font-size: 18px; 
+    font-family: 'poppins', sans-serif; 
+    font-weight: 200;
+    padding-left: 10px;
+}
+.generatedDiv{
+    display: flex;
+    align-items: center;justify-content: space-evenly;
+    padding: 4rem;
+}
+
+/* css for the snap profile */
+.profileSnapMainDiv{
+   /* display: none; */
+    height: 800px;
+    width: 600px;
+    border-radius: 50px;
+    border: 2px solid white;
+    background-color: #fff9db;
+    color: black;
+    /* transform: scale(0.5); */
+}
+
+.profileSnapMainDiv h3,h4{
+font-weight: 350;
+}
+
+.snap--start{
+    height: 100px;
+    border-radius: 50px 50px 0 0 ;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.snap--logos{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+
+.usernameDiv{
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+.snap--LeeterBoard{
+    display: flex;
+    align-items: center;
+}
+
+
+.snap--stats{
+    padding-top: 10px;
+    height: 280px;
+    /* border: 2px solid blue; */
+    margin: 10px;
+    border-radius: 20px;
+    background-color: #282727;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+
+}
+.snap--stats div{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    color: #fff9db;
+    align-items: center;
+    
+}
+.naming{
+    width: 20%;
+}
+.total{
+    justify-content: center;
+}
+.total h3{
+    background-color:#282727;
+    font-size: 1.5rem;
+}
+
+.snap--streak{
+    height: 100px;
+    /* border :2px solid pink; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.snap--badges{
+    height: 80px;
+    /* border: 2px solid red; */
+    background-color: #282727;
+    border-radius: 20px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.snap--badges img{
+    width: 60px;
+    padding: 5px;
+}
+
+.snap--contest{
+    height: 100px;
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.snap--visit{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.snap--visit button{
+    transform: scale(1.25);
+}
+
+.snapChange{
+    transform: scale(0.7);
+}
