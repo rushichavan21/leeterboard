@@ -17,6 +17,7 @@
 }
 .title{
     margin: 0%;
+    cursor: pointer;
 }
 .Navbar {
     display: flex;
@@ -51,3 +52,26 @@
     color:  black;
     font-weight: 300;
 }
+.toggle{
+    border: 2px solid rgba(255, 255, 255, 0.481);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    background-color: #282828;
+}
+.toggle--buttons{
+    color:rgba(255, 255, 255, 0.725);
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 0.5rem 0 0.5rem;
+    border-radius: 12px;
+    padding: 8px;
+}
+#feature{
+    color: rgba(255, 255, 0, 0.832);
+    }
+#feature:hover{
+    color: black;
+}    

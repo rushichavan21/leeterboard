@@ -1,0 +1,173 @@
+.profile--wrapper {
+  width: 1024px;
+  height: 768px;
+  background-image: url("./background.svg");
+  background-size: 170%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+.profile--username {
+  position: absolute;
+  background-color: #eef472;
+  width: 300px;
+  height: 100px;
+  top: 25px;
+  left: 28px;
+  border-radius: 40px;
+  border: 3px solid black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile--brand {
+  position: absolute;
+  background-color: #eef472;
+  width: 300px;
+  height: 100px;
+  top: 25px;
+  left: 695px;
+  border-radius: 40px;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile--stats {
+  position: absolute;
+  background-color: #eef472;
+  width: 967px;
+  height: 340px;
+  border-radius: 50px;
+  border: 5px solid black;
+  top: 188px;
+  left: 28px;
+}
+.fontfont {
+  font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 48px;
+}
+.profile--streak {
+  position: absolute;
+  background-color: #eef472;
+  width: 967px;
+  height: 121px;
+  border: 3px solid black;
+  border-radius: 40px;
+  top: 574px;
+  left: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.fontfont2 {
+  font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 42px;
+}
+
+/* profile--stats--div */
+.fontfont3{
+    position: absolute;
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 42px;
+}
+.easy-p {
+  left: 44px;
+  top: 30px;
+}
+.medium-p{
+    left: 44px;
+    top: 111px; 
+}
+.hard-p{
+    left: 44px;
+    top: 192.63px;      
+}
+.total-p{
+    left: 311px;
+    top: 270px;
+}
+
+.verified{
+position: absolute;
+width: 60px;
+height: 60px;
+top: 268px;
+left: 600px;
+}
+
+
+.profile-progress-bar-container {
+    width: 468px;
+    height: 57.64px;
+    position:absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: black;
+    border: 2px solid black;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .profile-easybar1{
+    top:30px;
+    left: 449px;
+    background-color: #aedc8391;
+  }
+  .profile-easybar2 {
+    background-color: #28ad2c;
+  }
+  .profile-mediumbar1{
+    top: 111px;
+    left: 449px;
+    background-color:rgba(210, 105, 30, 0.329);
+  }
+  .profile-mediumbar2 {
+    background-color: chocolate;
+  }
+  .profile-hardbar1{
+    top: 192.63px;
+    left: 449px;
+    background-color: rgba(165, 42, 42, 0.597);
+  }
+  .profile-hardbar2 {
+    background-color: brown;
+  } 
+  .ratio{
+    position: absolute;
+    color: black;
+    position: absolute;
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 50;
+    font-style: normal;
+    font-size: 26px;
+    top: 25%;
+    left: 75%;
+  }
+  .percentage{
+    position: absolute;
+    color: black;
+    position: absolute;
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 50;
+    font-style: normal;
+    font-size: 26px;
+    top: 25%;
+    left: 25%;
+  }
+  

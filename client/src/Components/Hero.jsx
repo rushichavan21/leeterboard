@@ -38,7 +38,7 @@ const Hero = () => {
   position="top-center"
   reverseOrder={false}
 />
-    <Navbar/>
+    <Navbar toast={toast}/>
    <Between/>  
     <Board toast={toast}/>
     <Options/>

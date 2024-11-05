@@ -1,7 +1,7 @@
 .BoardWrapper{
     background-color: rgb(25, 25,25);
     margin: 4rem 0;
-    padding: 2rem;
+    padding: 0 2rem 2rem 2rem;
     border-radius: 4rem;
    border: 0px solid rgba(255, 255, 255, 0.686);
    display: flex;
@@ -14,7 +14,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: row;
-margin: 2rem;
+margin: 3rem 2rem 2rem 2rem;
+padding-top: 2rem;
 }
 .between img{
     max-width: 75px;
@@ -52,14 +53,14 @@ font-size: 20px;
 
 }
 .AddUserNameMessage{
-    padding: 1rem 0;
+    padding: 0rem 0;
     text-align: center;
   
 }
 .AddUserNameMessage h1{
     font-weight: 200;
     max-width: 40ch;
-    color: 	#FADA5E;
+    color: 	rgba(255, 255, 255, 0.844);
 }
 .AddUserNameFunction input::placeholder {
     color:white; 

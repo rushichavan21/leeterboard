@@ -233,7 +233,7 @@ const Board = ({toast}) => {
           mediumSolved={userData.leetcodeData.mediumSolved}
           hardSolved={userData.leetcodeData.hardSolved}
           totalEasy={userData.leetcodeData.totalEasy}
-          totalMedium={userData.leetcodeData.totalHard}
+          totalMedium={userData.leetcodeData.totalMedium}
           totalHard={userData.leetcodeData.totalHard}
           arrayData={arrayData}
           setArrayData={setArrayData}

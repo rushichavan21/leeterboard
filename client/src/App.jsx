@@ -5,6 +5,7 @@ import SignupPage from './Components/Signup'
 import Hero from './Components/Hero'
 import { useAuthContext } from './Hooks/useAuthContext'
 import SnapPage from './Components/SnapPage'
+import SnapComponent from './Components/SnapComponent'
 const App = () => {
   const {user,loading}=useAuthContext();
   if (loading) {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/signup' element={!user?<SignupPage/>:<Navigate to='/'/>}/>
         <Route path='/' element={user?<Hero/>:<Navigate to="/login"/>}/>
         <Route path='/generate_snap' element={user?<SnapPage/>:<Navigate to="/login"/>}/>
+        <Route path='/testing' element={<SnapComponent/>}/>
       </Routes>
     </div>
   )
