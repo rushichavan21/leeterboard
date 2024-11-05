@@ -333,5 +333,15 @@ color: rgba(255, 255, 0, 0.832);
 .snapPageInput::placeholder{
   font-size: 14px;
 }
+.inputBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inputBox input{
+margin: 0;
+margin-bottom: 1rem;
+}
 }
 
