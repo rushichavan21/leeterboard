@@ -1,0 +1,64 @@
+.newNav--wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    /* background-color: rgba(201, 201, 201, 0.416); */
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(8px); 
+    z-index: 1000; 
+}
+.newNav--wrapper h3{
+    font-size: 24px;
+    font-weight: 400;
+}
+.newNav--logo img{
+    width: 24px;
+    margin-right: 0.5rem;
+}
+.newNav--logo{
+    display: flex;
+}
+
+.sidebarComp{
+    margin-top: 3.25rem;
+    font-weight: 400;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(8px); 
+    z-index: 1000; 
+   margin-left: -1rem;
+}
+.sidebar--elements{
+    font-weight: 400;
+    font-size: 18px;
+}
+.sidebar--icons{
+   height: 40px;
+   margin-left: 0.5rem;
+  
+}
+.sidebar--div{
+  position: fixed;
+  top: 3.5rem;
+}
+.sidebar--trigger--button{
+    padding: 15px 15px 15px 40px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    margin: 0px 0 0 -5px;
+    background-color: rgba(235, 255, 84, 0.738);
+
+    
+}
+.modeSwitch{
+    font-weight: 400;
+}
+#iconSize{
+    width: 23px;
+    height: 23px;
+}

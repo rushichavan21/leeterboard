@@ -84,18 +84,15 @@ const SignupPage = () => {
     }
   };
   return (
-    <div className="landing-container signupPage">
+    <div className="signupPage">
       <Toaster position="top-center" reverseOrder={true} />
       <div className="namePlate container">
         <div className="title">LeeterBoard</div>
         <div className="subtitle">
           Create an account and join the competition!
         </div>
-
-        <div></div>
       </div>
-
-      <div className="login-form signup-form container">
+      <div className="login-form signup-form container" id="signupWidthFix">
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">Email</label>

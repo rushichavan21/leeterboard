@@ -1,28 +1,32 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useToast } from "../Hooks/use-toast";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import Card from "./Card";
 import "../Styles/Board.css";
-import { useSetRecoilState , useRecoilState} from "recoil";
-import { loadingAtom , leetcodeDataAtom, usernameAtom, arrayDataAtom} from "../Atoms/Atoms";
+import { useSetRecoilState, useRecoilState } from "recoil";
+import { useTheme} from "@/Context/theme-provider";
+import {
+  loadingAtom,
+  leetcodeDataAtom,
+  usernameAtom,
+  arrayDataAtom,
+} from "../Atoms/Atoms";
 
-
-const Board = ({toast}) => {
-
+const Board = () => {
+  const {theme}=useTheme();
   let newUsernameToUpdate = "";
-
+  const { toast } = useToast();
 
   // Imports
   const { user } = useAuthContext();
   const token = user.token;
-  const setIsLoading=useSetRecoilState(loadingAtom);
+  const setIsLoading = useSetRecoilState(loadingAtom);
   const [arrayData, setArrayData] = useRecoilState(arrayDataAtom);
   const [newUsername, setNewUsername] = useRecoilState(usernameAtom);
-  const [leetcodeData,setLeetcodeData]=useRecoilState(leetcodeDataAtom);
-  
-
-
-
+  const [leetcodeData, setLeetcodeData] = useRecoilState(leetcodeDataAtom);
 
   // This function will fetch the single username and will add it to the existing array
   const fetchSingleUsernameData = async () => {
@@ -50,34 +54,22 @@ const Board = ({toast}) => {
           (a, b) => b.leetcodeData.totalSolved - a.leetcodeData.totalSolved
         );
         setLeetcodeData(updatedData);
-        toast.success(`${trimmedUsername} was added successfully`,
-          {
-            style: {
-              borderRadius: '10px',
-              background: '#333',
-              color: '#fff',
-            },
-          }
-        );
+
+        toast({
+          title: `${trimmedUsername} was successfully Added`
+        });
       }
     } catch (err) {
-
-      toast.error('Please Enter a valid Leetcode username',
-        {
-          style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-          },
-        }
-      );
+      setIsLoading(0);
+      toast({
+        variant: "destructive",
+        title: "Enter a valid Leetcode Username"
+      });
       console.error("Error fetching user data:", err);
     }
   };
 
-
-
-// After adding the new username this function will add the new username to the database
+  // After adding the new username this function will add the new username to the database
   const UpdateNewUsernameToDatabase = async () => {
     if (newUsernameToUpdate === "") {
       setIsLoading(0);
@@ -114,9 +106,6 @@ const Board = ({toast}) => {
     }
   };
 
-
-
-
   // Main onclick function for "Add-username"
   const handleAddUsername = async () => {
     setIsLoading(1);
@@ -126,9 +115,7 @@ const Board = ({toast}) => {
     newUsernameToUpdate = "";
   };
 
-
-
- // Fetch the leetcode stats from the UserNames Array on the database 
+  // Fetch the leetcode stats from the UserNames Array on the database
   const fetchLeetcodeData = async () => {
     const data = [];
     setIsLoading(1);
@@ -160,18 +147,8 @@ const Board = ({toast}) => {
         "Error fetching LeetCode data:",
         error.response ? error.response.data : error.message
       );
-      toast.error("error fetching leetcode data", {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-          fontWeight: "400",
-          fontFamily: "Poppins, sans-serif",
-        },
-      });
     }
   };
-
 
   // fetches the entire array of usernames
   const fetchUsernamesArray = async () => {
@@ -199,7 +176,7 @@ const Board = ({toast}) => {
     setNewUsername(e.target.value.trimStart());
   };
 
-    // UseEffecs are lined below
+  // UseEffecs are lined below
 
   useEffect(() => {
     const fetchUsername = async () => {
@@ -209,18 +186,24 @@ const Board = ({toast}) => {
     fetchUsername();
   }, []);
 
-  
   useEffect(() => {
     if (arrayData.length >= 0) {
       fetchLeetcodeData();
     }
   }, [arrayData]);
-  
+
   return (
-    <div className="BoardWrapper container">
+    <div
+      className={`BoardWrapper container ${
+        theme==="light"?"lightBoard":"darkBoard"
+      }`}
+    >
       {leetcodeData.length === 0 ? (
         <div className="AddUserNameMessage">
-          <h1>Add your leetcode group here, check real-time ranks, compete, and climb to the top of your custom leaderboard!</h1>
+          <h1>
+            Add your leetcode group here, check real-time ranks, compete, and
+            climb to the top of your custom leaderboard!
+          </h1>
         </div>
       ) : null}
       {leetcodeData.map((userData, index) => (
@@ -240,25 +223,27 @@ const Board = ({toast}) => {
           leetcodeData={leetcodeData}
           setLeetcodeData={setLeetcodeData}
           setIsLoading={setIsLoading}
-          toast={toast}
         />
       ))}
-
       {leetcodeData.length < 10 ? (
-        <div className="AddUserNameFunction container">
-          <input
-            type="text"
-            placeholder="Enter the username"
-            value={newUsername}
-            onChange={handleUsernameChange}
-            className="addUsernameInput"
-          />
-          <button
-            className="Buttons AdduserNameButtons"
-            onClick={handleAddUsername}
-          >
-            Add
-          </button>
+        <div className="AddUserNameFuncion container tester ">
+          <div className=" flex w-full max-w-sm items-center space-x-2">
+           
+            <Input
+              type="text"
+              placeholder="Enter the username"
+              value={newUsername}
+              onChange={handleUsernameChange}
+              className="addUsernameInput border-solid border-2 border-stone-700"
+            />
+            <Button
+              variant="outline"
+              onClick={handleAddUsername}
+              className="border-solid border-2 border-stone-700"
+            >
+              Add
+            </Button>
+          </div>
         </div>
       ) : null}
     </div>

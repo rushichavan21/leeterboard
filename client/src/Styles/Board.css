@@ -1,84 +1,71 @@
-.BoardWrapper{
-    background-color: rgb(25, 25,25);
-    margin: 4rem 0;
-    padding: 0 2rem 2rem 2rem;
-    border-radius: 4rem;
-   border: 0px solid rgba(255, 255, 255, 0.686);
-   display: flex;
-    align-items: center;
-   justify-content: center;
-   flex-direction: column;
+.BoardWrapper {
+  margin: 4rem 0;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 4rem;
+  border: 0px solid rgba(255, 255, 255, 0.686);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.between{
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-margin: 3rem 2rem 2rem 2rem;
-padding-top: 2rem;
+.lightBoard {
+  color: black;
 }
-.between img{
-    max-width: 75px;
+.darkBoard {
+  color: white;
+  /* background-color: black; */
+}
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 3rem 2rem 2rem 2rem;
+  padding-top: 5rem;
+}
+.between img {
+  max-width: 75px;
 }
 
-.between h1{
-font-weight: 300;
-font-size: 50px;
-padding: 0 20px;
+.between h1 {
+  font-weight: 300;
+  font-size: 50px;
+  padding: 0 20px;
 }
 
+/* CSS FOR {ADD USER NAME} */
 
-/* Add User name Css */
-.AddUserNameFunction {
-    padding: 1.5rem;
-    margin: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* width: 50%; */
-    /* background-color:  rgba(0, 0, 0, 0.332); */
-    border-radius: 1rem;
+.AddUserNameMessage {
+  padding: 0rem 0;
+  text-align: center;
 }
-.AddUserNameFunction input{
-
-border-radius: 2rem;
-padding: 0.25rem;
-color: white;
-font-weight: 400;
-text-align: center;
-background-color: #282727;
-border: 1px solid white;
-font-family: poppins;
-font-size: 20px;
-
+.AddUserNameMessage h1 {
+  font-weight: 300;
+  max-width: 40ch;
+  font-size: 32px;
 }
-.AddUserNameMessage{
-    padding: 0rem 0;
-    text-align: center;
-  
+.addUsernameInput::placeholder {
+  font-weight: 500;
 }
-.AddUserNameMessage h1{
-    font-weight: 200;
-    max-width: 40ch;
-    color: 	rgba(255, 255, 255, 0.844);
+.addUsernameInput:focus {
+  font-weight: 400;
 }
-.AddUserNameFunction input::placeholder {
-    color:white; 
-    font-size: 18px; 
-    font-family: 'poppins', sans-serif; 
-    font-weight: 200;
-    padding-left: 10px;
-  }
-  .AdduserNameButtons,.addUsernameInput{
-    margin: 0 10px 0 10px;
-   }
-   .usernameError{
-
-    background-color: rgba(177, 74, 74, 0.648);
-    color:white;
-    font-weight: 400;
-    text-align: center;
-    padding: 10px;
-    border-radius: 2rem;
-    width: 30%;
-   }
+.AdduserNameButtons,
+.addUsernameInput {
+  margin: 0 10px 0 10px;
+}
+.usernameError {
+  background-color: rgba(177, 74, 74, 0.648);
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+  border-radius: 2rem;
+  width: 30%;
+}
+.tester {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+}

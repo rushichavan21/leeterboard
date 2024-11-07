@@ -2,7 +2,9 @@ import React from 'react'
 import '../Styles/Card.css'
 import axios from "axios";
 import { useAuthContext } from "../Hooks/useAuthContext";
-
+import { Button } from "@/components/ui/button"
+import { useToast } from "../Hooks/use-toast";
+import { useTheme} from "@/Context/theme-provider";
 
 const ProgressBar = ({ progress, styles,numerator,denominator}) => {
     return (
@@ -18,10 +20,11 @@ const ProgressBar = ({ progress, styles,numerator,denominator}) => {
   };
   
 
-const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,arrayData,setArrayData,leetcodeData,setLeetcodeData,setIsLoading,toast}) => {
+const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,arrayData,setArrayData,leetcodeData,setLeetcodeData,setIsLoading}) => {
   const { user } = useAuthContext();
   const token = user.token;
-
+  const { toast } = useToast();
+  const {theme}=useTheme();
   const handleVisit = () => {
     const link = `https://leetcode.com/u/${username}`;
     window.open(link, '_blank'); 
@@ -34,17 +37,10 @@ const Card = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,t
 
     const updatedLeetcodeData = leetcodeData.filter((element) => element.username !== usernameToRemove);
     setLeetcodeData(updatedLeetcodeData);
-
-    setIsLoading(false);
-    toast.success(`${usernameToRemove} was removed `, {
-      style: {
-        borderRadius: "10px",
-        background: "#333",
-        color: "#fff",
-        fontWeight: "400",
-        fontFamily: "Poppins, sans-serif",
-      },
+    toast({
+      title: `${usernameToRemove} was removed`
     });
+    setIsLoading(false);
 }
 
 // This function removes the Username from the Database
@@ -72,17 +68,20 @@ const removeFromDatabase=async (usernameToRemove)=>{
   
 
   return (
-    <div className='CardWrapper container'>
+    <div className={`CardWrapper container ${theme==="light"?"lightCard":"darkCard"}`}>
       <div className="info">
         <div className="infoInfo">
         <h3>{`${username}`}</h3>
         <h3>{`LeeterBoard Rank:  ${rank}`}</h3>
-        <h3>Total Questions: {totalQuestions}</h3>
+        <h3>Total Questions: <span className={`${theme==="light"?"totalQuestionsLight":"totalQuestionsDark"}`}>{totalQuestions}</span></h3>
         </div>
        
         <div className="buttonsDiv">
-        <button className='Buttons visit' onClick={handleVisit}>Visit</button>
-        <button className='Buttons remove' onClick={()=>{handleRemove(username)}}>Remove</button>
+        {/* <button className='Buttons visit' onClick={handleVisit}>Visit</button> */}
+        <Button variant="outline" id="visit" onClick={handleVisit}>Visit</Button>
+        <Button variant="outline" id="remove"  onClick={()=>{handleRemove(username)}}>Remove</Button>
+{/* 
+        <button className='Buttons remove' onClick={()=>{handleRemove(username)}}>Remove</button> */}
         </div>
     
       </div>
