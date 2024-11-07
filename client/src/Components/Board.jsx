@@ -235,6 +235,7 @@ const Board = () => {
               value={newUsername}
               onChange={handleUsernameChange}
               className="addUsernameInput border-solid border-2 border-stone-700"
+         
             />
             <Button
               variant="outline"

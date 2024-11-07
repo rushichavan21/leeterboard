@@ -65,10 +65,10 @@
   font-size: 0.9rem;
   font-weight: 300;
 }
-input:focus,
+/* input:focus,
 input:active {
   color: black; /* Set the active text color to black */
-}
+
 
 /* Button */
 .login-button {
@@ -109,4 +109,11 @@ input:active {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+#password{
+  color: black;
+}
+#email{
+color: black;
 }

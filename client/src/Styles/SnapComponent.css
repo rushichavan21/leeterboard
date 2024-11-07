@@ -170,4 +170,6 @@ left: 600px;
     top: 25%;
     left: 25%;
   }
-  
+  #confirmPassword{
+    color: black;
+    }
