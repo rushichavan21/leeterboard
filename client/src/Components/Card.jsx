@@ -2,7 +2,7 @@ import React from 'react'
 import '../Styles/Card.css'
 import axios from "axios";
 import { useAuthContext } from "../Hooks/useAuthContext";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/Components/ui/button"
 import { useToast } from "../Hooks/use-toast";
 import { useTheme} from "@/Context/theme-provider";
 

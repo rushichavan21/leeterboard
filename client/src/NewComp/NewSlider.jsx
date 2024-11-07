@@ -1,5 +1,5 @@
 import React from "react";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/Components/ui/sidebar";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Styles/NewHome.css";
