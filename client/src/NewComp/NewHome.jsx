@@ -5,7 +5,7 @@ import NewSlider from './NewSlider'
 import Board from '@/Components/Board'
 import { useRecoilValue } from 'recoil'
 import { loadingAtom } from '../Atoms/Atoms'
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/Components/ui/toaster"
 import '../Styles/loader.css'
 const Between=()=>{
     return (
