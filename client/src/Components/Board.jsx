@@ -16,11 +16,11 @@ import {
 } from "../Atoms/Atoms";
 
 const Board = () => {
+
+
   const {theme}=useTheme();
   let newUsernameToUpdate = "";
   const { toast } = useToast();
-
-  // Imports
   const { user } = useAuthContext();
   const token = user.token;
   const setIsLoading = useSetRecoilState(loadingAtom);
@@ -86,7 +86,7 @@ const Board = () => {
             },
           }
         );
-
+          
         if (response.data.leetcodeUsernames) {
           console.log(
             "Username successfully added:",
@@ -117,38 +117,38 @@ const Board = () => {
 
   // Fetch the leetcode stats from the UserNames Array on the database
   const fetchLeetcodeData = async () => {
-    const data = [];
     setIsLoading(1);
+  
     try {
-      for (const username of arrayData) {
-        const response = await axios.get(
-          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/data/${username}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        data.push({
-          username: username,
+      const requests = arrayData.map(username =>
+        axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/data/${username}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }).then(response => ({
+          username,
           leetcodeData: response.data,
-        });
-      }
-
+        }))
+      );
+  
+      const data = await Promise.all(requests);
+  
       const sortedData = data.sort(
         (a, b) => b.leetcodeData.totalSolved - a.leetcodeData.totalSolved
       );
-
+  
+  
       setLeetcodeData(sortedData);
-      setIsLoading(0);
     } catch (error) {
       console.error(
         "Error fetching LeetCode data:",
         error.response ? error.response.data : error.message
       );
+    } finally {
+      setIsLoading(0);
     }
   };
+  
 
   // fetches the entire array of usernames
   const fetchUsernamesArray = async () => {
@@ -225,7 +225,7 @@ const Board = () => {
           setIsLoading={setIsLoading}
         />
       ))}
-      {leetcodeData.length < 10 ? (
+      {leetcodeData.length < 15 ? (
         <div className="AddUserNameFuncion container tester ">
           <div className=" flex w-full max-w-sm items-center space-x-2">
            
