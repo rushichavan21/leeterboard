@@ -39,7 +39,6 @@
     font-size: 18px;
 }
 .sidebar--icons{
-   height: 40px;
    margin-left: 0.5rem;
   
 }
@@ -73,4 +72,9 @@ padding-left: 50px;
 } */
  #tester2{
     padding-top: 30px;
+ }
+ #tryToCenter{
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
  }

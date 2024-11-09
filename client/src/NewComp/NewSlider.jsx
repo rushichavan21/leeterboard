@@ -4,7 +4,7 @@ import { useAuthContext } from "../Hooks/useAuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Styles/NewHome.css";
 import { useToast } from "../Hooks/use-toast";
-
+import { ToastAction } from "@/Components/ui/toast"
 
 import {
   SidebarMenuSubButton,
@@ -46,6 +46,7 @@ const items = [
   { title: "Snap", icon: CameraIcon, task: "Snap" },
   { title: "Public Room", icon: UnlockKeyhole, task: "Public" },
   { title: "Private Room", icon: Lock, task: "Private" },
+  { title: "logout", icon: LogOutIcon, task: "logout" },
 ];
 
 export function AppSidebar() {
@@ -79,15 +80,24 @@ export function AppSidebar() {
       case "Messages":
         toast({ title: `Launching Soon` });
         break;
+      case "logout":
+        logout();
+        break
       default:
         console.log("No action defined for", task);
     }
   };
-
-  const logout = () => {
+  const handleLogout=()=>{
     localStorage.removeItem("user");
     dispatch({ type: "LOGOUT" });
     navigate("/");
+  }
+  const logout = () => {
+    toast({
+      title: "Are You Sure?",
+      description: "",
+      action: <ToastAction onClick={handleLogout} altText="Logout">Logout</ToastAction>,
+    })
   };
 
 
@@ -97,12 +107,15 @@ const handleButtonClick = (event) => {
     <Sidebar className="sidebarComp" collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupContent>
+          <SidebarGroupContent
+             className="sidebar--icons"
+          >
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem
                   key={item.title}
-                  className="sidebar--icons"
+                
+                 id="tryToCenter"
                   onClick={() => handleNavigation(item.task)}
                 >
                   <SidebarMenuButton asChild>
@@ -113,33 +126,6 @@ const handleButtonClick = (event) => {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
-
-              <SidebarFooter>
-                <SidebarMenuItem className="sidebar--icons">
-                  <SidebarMenuButton asChild>
-                    <button>
-                      <LogOutIcon id="iconSize" />
-                      <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                          <button className="sidebar--elements" onClick={(event) => {
-    handleButtonClick(event); 
-
-  }}>Logout</button>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                          <AlertDialogHeader>
-                            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-                          </AlertDialogHeader>
-                          <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={logout}>Logout</AlertDialogAction>
-                          </AlertDialogFooter>
-                        </AlertDialogContent>
-                      </AlertDialog>
-                    </button>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarFooter>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -161,3 +147,36 @@ const NewSlider = ({ children }) => (
 );
 
 export default NewSlider;
+
+
+
+
+
+
+
+  //             <SidebarFooter >
+  //               <SidebarMenuItem className="sidebar--icons">
+  //                 <SidebarMenuButton asChild>
+  //                   <button>
+  //                     <LogOutIcon id="iconSize" />
+  //                     <AlertDialog>
+  //                       <AlertDialogTrigger asChild>
+  //                         <button className="sidebar--elements" onClick={(event) => {
+  //   handleButtonClick(event); 
+
+  // }}>Logout</button>
+  //                       </AlertDialogTrigger>
+  //                       <AlertDialogContent>
+  //                         <AlertDialogHeader>
+  //                           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+  //                         </AlertDialogHeader>
+  //                         <AlertDialogFooter>
+  //                           <AlertDialogCancel>Cancel</AlertDialogCancel>
+  //                           <AlertDialogAction onClick={logout}>Logout</AlertDialogAction>
+  //                         </AlertDialogFooter>
+  //                       </AlertDialogContent>
+  //                     </AlertDialog>
+  //                   </button>
+  //                 </SidebarMenuButton>
+  //               </SidebarMenuItem>
+  //             </SidebarFooter>
