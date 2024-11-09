@@ -73,16 +73,18 @@ const SidebarProvider = React.forwardRef((
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        // Only close if the click is truly outside
         setOpen(false);
         setOpenMobile(false);
       }
     };
-
+  
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [setOpen, setOpenMobile]);
+  
 
   const contextValue = React.useMemo(() => ({
     state: open ? "expanded" : "collapsed",
@@ -292,7 +294,7 @@ const SidebarFooter = React.forwardRef(({ className, ...props }, ref) => {
     (<div
       ref={ref}
       data-sidebar="footer"
-      className={cn("flex flex-col gap-2 p-2", className)}
+      className={cn("flex flex-col gap-2 p-1", className)}
       {...props} />)
   );
 })
@@ -383,7 +385,7 @@ const SidebarMenu = React.forwardRef(({ className, ...props }, ref) => (
   <ul
     ref={ref}
     data-sidebar="menu"
-    className={cn("flex w-full min-w-0 flex-col gap-1", className)}
+    className={cn("flex w-full min-w-0 flex-col gap-2", className)}
     {...props} />
 ))
 SidebarMenu.displayName = "SidebarMenu"

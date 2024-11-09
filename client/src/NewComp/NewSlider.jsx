@@ -1,9 +1,25 @@
+
 import React from "react";
-import { SidebarProvider, SidebarTrigger } from "@/Components/ui/sidebar";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Styles/NewHome.css";
 import { useToast } from "../Hooks/use-toast";
+
+
+import {
+  SidebarMenuSubButton,
+  SidebarProvider,
+  SidebarTrigger,
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarFooter,
+} from "@/Components/ui/sidebar";
+
 
 import {
   CameraIcon,
@@ -13,132 +29,71 @@ import {
   LogOutIcon,
   UnlockKeyhole,
 } from "lucide-react";
-
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/Components/ui/sidebar";
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/Components/ui/alert-dialog";
 
 const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-    task: "Home",
-  },
-  {
-    title: "Messages",
-    url: "#",
-    icon: Inbox,
-    task: "Messages",
-  },
-  {
-    title: "Snap",
-    url: "#",
-    icon: CameraIcon,
-    task: "Snap",
-  },
-  {
-    title: "Public Room",
-    url: "#",
-    icon: UnlockKeyhole,
-    task: "Public",
-  },
-  {
-    title: "Private Room",
-    url: "#",
-    icon: Lock,
-    task: "Private",
-  },
-  {
-    title: "logout",
-    url: "#",
-    icon: LogOutIcon,
-    task: "logout",
-  },
+  { title: "Home", icon: Home, task: "Home" },
+  { title: "Discuss", icon: Inbox, task: "Messages" },
+  { title: "Snap", icon: CameraIcon, task: "Snap" },
+  { title: "Public Room", icon: UnlockKeyhole, task: "Public" },
+  { title: "Private Room", icon: Lock, task: "Private" },
 ];
 
 export function AppSidebar() {
   const { dispatch } = useAuthContext();
   const { toast } = useToast();
   const navigate = useNavigate();
-  let location = useLocation();
+  const location = useLocation();
 
-  const Home = () => {
-    if (location.pathname === "/") {
-      toast({
-        title: `You are on HomePage Already`,
-      });
-    }
-    navigate("/");
-  };
-  const Snap = () => {
-    if (location.pathname === "/generate_snap") {
-      toast({
-        title: `You are on HomePage Already`,
-      });
-    } else {
-      navigate("/generate_snap");
-    }
-  };
-  const handleRefresh = () => {
-    navigate("/");
-    window.location.reload();
-  };
-  const logout = () => {
-    localStorage.removeItem("user");
-    dispatch({ type: "LOGOUT" });
-    console.log("logout");
-  };
-  const Private = () => {
-    toast({
-      title: `Launching Soon`,
-    });
-    console.log("handlePrivate");
-  };
-  const Public = () => {
-    toast({
-      title: `Launching Soon`,
-    });
-    console.log("handlePublic");
-  };
-  const Messages = () => {
-    toast({
-      title: `Launching Soon  `,
-    });
-  };
-
-  const handleClick = (task) => {
+  const handleNavigation = (task) => {
     switch (task) {
       case "Home":
-        Home();
+        if (location.pathname === "/") {
+          toast({ title: `You are on HomePage Already` });
+        } else {
+          navigate("/");
+        }
         break;
       case "Snap":
-        Snap();
-        break;
-      case "logout":
-        logout();
+        if (location.pathname === "/generate_snap") {
+          toast({ title: `You are on HomePage Already` });
+        } else {
+          navigate("/generate_snap");
+        }
         break;
       case "Private":
-        Private();
+        toast({ title: `Launching Soon` });
         break;
       case "Public":
-        Public();
+        toast({ title: `Launching Soon` });
         break;
       case "Messages":
-        Messages();
+        toast({ title: `Launching Soon` });
         break;
       default:
         console.log("No action defined for", task);
     }
   };
 
-  return (
+  const logout = () => {
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
+
+
+const handleButtonClick = (event) => {
+  event.stopPropagation();
+};  return (
     <Sidebar className="sidebarComp" collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
@@ -148,16 +103,43 @@ export function AppSidebar() {
                 <SidebarMenuItem
                   key={item.title}
                   className="sidebar--icons"
-                  onClick={() => handleClick(item.task)}
+                  onClick={() => handleNavigation(item.task)}
                 >
                   <SidebarMenuButton asChild>
                     <button>
-                      <item.icon id="iconSize"/>
+                      <item.icon id="iconSize" />
                       <span className="sidebar--elements">{item.title}</span>
                     </button>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+
+              <SidebarFooter>
+                <SidebarMenuItem className="sidebar--icons">
+                  <SidebarMenuButton asChild>
+                    <button>
+                      <LogOutIcon id="iconSize" />
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <button className="sidebar--elements" onClick={(event) => {
+    handleButtonClick(event); 
+
+  }}>Logout</button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction onClick={logout}>Logout</AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
+                    </button>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarFooter>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -166,18 +148,16 @@ export function AppSidebar() {
   );
 }
 
-const NewSlider = ({ children }) => {
-  return (
-    <div className="newsidebar--Wrapper">
-      <SidebarProvider defaultOpen={false}>
-        <AppSidebar />
-        <main>
-          <SidebarTrigger />
-          {children}
-        </main>
-      </SidebarProvider>
-    </div>
-  );
-};
+const NewSlider = ({ children }) => (
+  <div className="newsidebar--Wrapper">
+    <SidebarProvider defaultOpen={false}>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
+  </div>
+);
 
 export default NewSlider;
