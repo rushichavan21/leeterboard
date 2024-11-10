@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
+  color: black;
 }
 .profile--username {
   position: absolute;

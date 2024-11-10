@@ -24,7 +24,37 @@ body{
 @tailwind utilities;
 
 /* ... */
+html.dark {
+  --bg-image: url('./BG-Grid.svg');
 
+
+}
+
+html.light {
+  --bg-image: url('./BG-Grid-Light.svg');
+
+}
+
+body {
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  min-height: 100vh; 
+  overflow-y: auto; 
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; 
+  z-index: -1; 
+}
 
 #toastPosition{
  border: 2px solid rgb(255, 255, 255);

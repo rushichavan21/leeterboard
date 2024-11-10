@@ -78,7 +78,7 @@ const removeFromDatabase=async (usernameToRemove)=>{
        
         <div className="buttonsDiv">
         {/* <button className='Buttons visit' onClick={handleVisit}>Visit</button> */}
-        <Button variant="outline" id="visit" onClick={handleVisit}>Visit</Button>
+        <Button variant="outline" id={`visit`} onClick={handleVisit}>Visit</Button>
         <Button variant="outline" id="remove"  onClick={()=>{handleRemove(username)}}>Remove</Button>
 {/* 
         <button className='Buttons remove' onClick={()=>{handleRemove(username)}}>Remove</button> */}

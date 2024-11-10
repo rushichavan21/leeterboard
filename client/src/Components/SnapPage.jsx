@@ -3,11 +3,12 @@ import { useAuthContext } from "../Hooks/useAuthContext";
 import axios from "axios";
 import { toJpeg } from "html-to-image";
 import "../Styles/SnapPage.css";
-import Navbar from "./Navbar";
 import SnapComponent from "./SnapComponent";
 import { useSetRecoilState , useRecoilState, useRecoilValue} from "recoil";
 import { loadingAtom } from "../Atoms/Atoms";
 import toast ,{Toaster} from 'react-hot-toast'
+import NewNav from "@/NewComp/NewNav";
+import NewSlider from "@/NewComp/NewSlider";
 
 const Loader=()=>{
   return(
@@ -131,7 +132,10 @@ setIsLoading(1);
   position="top-center"
   reverseOrder={false}
 />
-      <Navbar />
+    <NewNav/>
+      <div className="sidebar--div"> 
+    <NewSlider/>
+    </div>
       <div className="snapPage--main--div">
       <div className="snapPage--info container">
         <div>

@@ -45,6 +45,7 @@
 .sidebar--div{
   position: fixed;
   top: 3.5rem;
+  z-index: 99;
 }
 .sidebar--trigger--button{
     padding: 15px 15px 15px 40px;
