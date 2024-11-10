@@ -6,7 +6,7 @@ import "../Styles/SnapPage.css";
 import SnapComponent from "./SnapComponent";
 import { useSetRecoilState , useRecoilState, useRecoilValue} from "recoil";
 import { loadingAtom } from "../Atoms/Atoms";
-import toast ,{Toaster} from 'react-hot-toast'
+import { Toaster } from "@/Components/ui/toaster"
 import NewNav from "@/NewComp/NewNav";
 import NewSlider from "@/NewComp/NewSlider";
 
@@ -185,6 +185,7 @@ setIsLoading(1);
       ) : null}
     </div>
     {isLoading?<Loader/>:null}
+    <Toaster/>
     </>
     );};
      

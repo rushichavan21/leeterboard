@@ -52,7 +52,7 @@ module.exports = {
   			},
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
-  				foreground: 'hsl(var(--sidebar-foreground))',
+  				foreground: 'var(--sidebar-foreground)',
   				primary: 'hsl(var(--sidebar-primary))',
   				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
   				accent: 'hsl(var(--sidebar-accent))',
