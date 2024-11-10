@@ -25,13 +25,13 @@ body{
 
 /* ... */
 html.dark {
-  --bg-image: url('./BG-Grid.svg');
+  --bg-image: url('/BG-Grid.svg');
 
 
 }
 
 html.light {
-  --bg-image: url('./BG-Grid-Light.svg');
+  --bg-image: url('/BG-Grid-Light.svg');
 
 }
 
