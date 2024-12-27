@@ -1,3 +1,4 @@
+// QUERY FOR GRAPHQL DATABASE
 const query = `
   query getUserProfile($username: String!) {
     allQuestionsCount {
@@ -26,6 +27,7 @@ const query = `
     }
   }
 `;
+// THIS QUERY IS USED AS AN ADDITIONAL CHECK JUST FOR SNAP COMPONENT
 const query2 = `
   query getUserAttendedContests($username: String!) {
     userContestRanking(username: $username) {
@@ -34,7 +36,6 @@ const query2 = `
     }
   }
 `;
-
 
 const formatData = (data, attendedContests = 0, rating = 0) => {
   let sendData = {
@@ -50,11 +51,42 @@ const formatData = (data, attendedContests = 0, rating = 0) => {
     rating: rating,
     attendedContests: attendedContests, 
   };
-
   return sendData;
 };
 
 const fetch = require('node-fetch');
+
+exports.validUsername=async(req,res)=>{
+  let user=req.params.id;
+  try {
+    const response = await fetch('https://leetcode.com/graphql', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Referer': 'https://leetcode.com'
+      },
+      body: JSON.stringify({ query: query, variables: { username: user } })
+  });
+   
+  const data = await response.json();
+
+  if (data.errors) {
+    console.error('LeetCode API Error:', data.errors);
+    return res.status(400).json({ error: 'Error fetching data from LeetCode', details: data.errors });
+} 
+  if(data){
+    res.status(200).json({
+      message:"userFound"
+    })
+  }
+
+
+  } catch (error) {
+    res.status(400).json({
+      error:error,
+    })
+  }
+}
 
 exports.leetcodeData = async (req, res) => {
     let user = req.params.id;

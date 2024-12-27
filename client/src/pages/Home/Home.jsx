@@ -1,12 +1,13 @@
-import React from 'react'
-import '../Styles/NewHome.css'
-import NewNav from './NewNav'
-import NewSlider from './NewSlider'
-import Board from '@/Components/Board'
+
+import './Home.css'
+import NewNav from '@/Components/Navbar/Navbar'
+import NewSlider from '@/NewComp/NewSlider'
+import Board from '@/Components/Board/Board'
 import { useRecoilValue } from 'recoil'
-import { loadingAtom } from '../Atoms/Atoms'
+import { loadingAtom } from '@/Atoms/Atoms'
 import { Toaster } from "@/Components/ui/toaster"
-import '../Styles/loader.css'
+import '../../Styles/Loader.css'
+
 const Between=()=>{
     return (
       <div className="between container">
@@ -28,7 +29,7 @@ const Loader=()=>{
   )
 }
 
-const NewHome = () => {
+const Home = () => {
   const isLoading=useRecoilValue(loadingAtom);
   return (
     <div className='newhome--wrapper'>
@@ -44,4 +45,4 @@ const NewHome = () => {
   )
 }
 
-export default NewHome
+export default Home

@@ -1,10 +1,11 @@
-import React from 'react'
-import {Routes,Route,BrowserRouter,Navigate} from 'react-router-dom'
-import Login from './Components/Login'
-import SignupPage from './Components/Signup'
+
+import {Routes,Route,Navigate} from 'react-router-dom'
+import Login from './pages/Login/Login'
+import SignupPage from './pages/Signup/Signup'
 import { useAuthContext } from './Hooks/useAuthContext'
-import SnapPage from './Components/SnapPage'
-import NewHome from './NewComp/NewHome'
+import SnapPage from './pages/Snap/SnapPage'
+import Home from './pages/Home/Home'
+
 const App = () => {
   const {user,loading}=useAuthContext();
   if (loading) {
@@ -16,9 +17,8 @@ const App = () => {
       <Routes>
         <Route path='/login' element={!user? <Login/>:<Navigate to="/"/>}/>
         <Route path='/signup' element={!user?<SignupPage/>:<Navigate to='/'/>}/>
-        <Route path='/' element={user?<NewHome/>:<Navigate to="/login"/>}/>
+        <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>
         <Route path='/generate_snap' element={user?<SnapPage/>:<Navigate to="/login"/>}/>
-        <Route path='/testing' element={<NewHome/>}/>
       </Routes>
     </div>
   )

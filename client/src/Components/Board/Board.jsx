@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect} from "react";
 import axios from "axios";
-import { useToast } from "../Hooks/use-toast";
+import { useToast } from "../../Hooks/use-toast";
 import { Input } from "@/Components/ui/input";
 import { Button } from "@/Components/ui/button";
-import { useAuthContext } from "../Hooks/useAuthContext";
-import Card from "./Card";
-import "../Styles/Board.css";
+import { useAuthContext } from "../../Hooks/useAuthContext";
+import Card from "../Card/Card";
+import "./Board.css";
 import { useSetRecoilState, useRecoilState } from "recoil";
 import { useTheme} from "@/Context/theme-provider";
+
 import {
   loadingAtom,
   leetcodeDataAtom,
   usernameAtom,
   arrayDataAtom,
-} from "../Atoms/Atoms";
+} from "../../Atoms/Atoms";
+
 
 const Board = () => {
-
-
   const {theme}=useTheme();
   let newUsernameToUpdate = "";
   const { toast } = useToast();
@@ -27,6 +27,7 @@ const Board = () => {
   const [arrayData, setArrayData] = useRecoilState(arrayDataAtom);
   const [newUsername, setNewUsername] = useRecoilState(usernameAtom);
   const [leetcodeData, setLeetcodeData] = useRecoilState(leetcodeDataAtom);
+
 
   // This function will fetch the single username and will add it to the existing array
   const fetchSingleUsernameData = async () => {
@@ -70,6 +71,7 @@ const Board = () => {
   };
 
   // After adding the new username this function will add the new username to the database
+
   const UpdateNewUsernameToDatabase = async () => {
     if (newUsernameToUpdate === "") {
       setIsLoading(0);
@@ -107,6 +109,7 @@ const Board = () => {
   };
 
   // Main onclick function for "Add-username"
+
   const handleAddUsername = async () => {
     setIsLoading(1);
     await fetchSingleUsernameData();
@@ -116,6 +119,7 @@ const Board = () => {
   };
 
   // Fetch the leetcode stats from the UserNames Array on the database
+
   const fetchLeetcodeData = async () => {
     setIsLoading(1);
   
@@ -151,6 +155,7 @@ const Board = () => {
   
 
   // fetches the entire array of usernames
+  
   const fetchUsernamesArray = async () => {
     try {
       setIsLoading(1);
@@ -176,13 +181,11 @@ const Board = () => {
     setNewUsername(e.target.value.trimStart());
   };
 
-  // UseEffecs are lined below
 
   useEffect(() => {
     const fetchUsername = async () => {
       await fetchUsernamesArray();
     };
-
     fetchUsername();
   }, []);
 

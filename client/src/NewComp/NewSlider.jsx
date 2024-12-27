@@ -2,7 +2,7 @@
 import React from "react";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../Styles/NewHome.css";
+import "../pages/Home/Home.css";
 import { useToast } from "../Hooks/use-toast";
 import { ToastAction } from "@/Components/ui/toast"
 

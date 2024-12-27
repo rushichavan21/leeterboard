@@ -1,10 +1,10 @@
-import React from "react";
+
 import toast, { Toaster } from "react-hot-toast";
-import "../Styles/SignupPage.css";
+import "./SignupPage.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import axios from "axios";
-import { useAuthContext } from "../Hooks/useAuthContext";
+import { useAuthContext } from "../../Hooks/useAuthContext";
 
 const SignupPage = () => {
   const { dispatch } = useAuthContext();

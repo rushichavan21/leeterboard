@@ -1,18 +1,16 @@
-import React, { useState, useCallback, useRef } from "react";
-import { useAuthContext } from "../Hooks/useAuthContext";
+import { useState, useCallback, useRef } from "react";
+import { useAuthContext } from "../../Hooks/useAuthContext";
 import axios from "axios";
 import { toJpeg } from "html-to-image";
-import "../Styles/SnapPage.css";
-import SnapComponent from "./SnapComponent";
-import { useSetRecoilState , useRecoilState, useRecoilValue} from "recoil";
-import { loadingAtom } from "../Atoms/Atoms";
+import "./SnapPage.css";
+import { useSetRecoilState, useRecoilValue} from "recoil";
+import { loadingAtom } from "../../Atoms/Atoms";
 import { Toaster } from "@/Components/ui/toaster"
-import NewNav from "@/NewComp/NewNav";
+import NewNav from "@/Components/Navbar/Navbar";
 import NewSlider from "@/NewComp/NewSlider";
 
 const Loader=()=>{
   return(
-    
     <div className="loaderDiv">
     <div className="loader"></div>
     <h3>Loading...</h3>

@@ -1,10 +1,8 @@
-import React from 'react'
-import '../Styles/NewHome.css'
-import { Button } from '@/Components/ui/button'
+
+import "./Navbar.css";
 import { ModeToggle } from '@/Components/ModeToggle'
 
-
-const NewNav = () => {
+const Navbar = () => {
   return (
     <div className='newNav--wrapper'>
         <div className="newNav--logo">
@@ -16,4 +14,4 @@ const NewNav = () => {
   )
 }
 
-export default NewNav
+export default Navbar

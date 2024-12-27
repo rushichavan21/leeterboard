@@ -1,9 +1,9 @@
-import React from 'react'
-import '../Styles/Card.css'
+
+import './Card.css'
 import axios from "axios";
-import { useAuthContext } from "../Hooks/useAuthContext";
+import { useAuthContext } from "../../Hooks/useAuthContext";
 import { Button } from "@/Components/ui/button"
-import { useToast } from "../Hooks/use-toast";
+import { useToast } from "../../Hooks/use-toast";
 import { useTheme} from "@/Context/theme-provider";
 
 const ProgressBar = ({ progress, styles,numerator,denominator}) => {
@@ -77,11 +77,8 @@ const removeFromDatabase=async (usernameToRemove)=>{
         </div>
        
         <div className="buttonsDiv">
-        {/* <button className='Buttons visit' onClick={handleVisit}>Visit</button> */}
         <Button variant="outline" id={`visit`} onClick={handleVisit}>Visit</Button>
         <Button variant="outline" id="remove"  onClick={()=>{handleRemove(username)}}>Remove</Button>
-{/* 
-        <button className='Buttons remove' onClick={()=>{handleRemove(username)}}>Remove</button> */}
         </div>
     
       </div>

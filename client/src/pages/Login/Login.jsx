@@ -1,9 +1,9 @@
-import React from 'react';
+
 import toast ,{Toaster} from 'react-hot-toast'
-import '../Styles/Login.css';
+import './Login.css';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
-import { useAuthContext } from '../Hooks/useAuthContext';
+import { useAuthContext } from '../../Hooks/useAuthContext';
 import axios from 'axios';
 const Login = () => {
   const { dispatch } = useAuthContext();
