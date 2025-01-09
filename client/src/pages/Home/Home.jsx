@@ -1,7 +1,7 @@
 
 import './Home.css'
 import NewNav from '@/Components/Navbar/Navbar'
-import NewSlider from '@/NewComp/NewSlider'
+import Slider from '@/Components/Slider/Slider'
 import Board from '@/Components/Board/Board'
 import { useRecoilValue } from 'recoil'
 import { loadingAtom } from '@/Atoms/Atoms'
@@ -35,7 +35,7 @@ const Home = () => {
     <div className='newhome--wrapper'>
     <NewNav/>
     <div className="sidebar--div"> 
-    <NewSlider/>
+    <Slider/>
     </div>
     <Between/>
     <Board/>

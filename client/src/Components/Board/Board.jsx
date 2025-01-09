@@ -8,7 +8,7 @@ import Card from "../Card/Card";
 import "./Board.css";
 import { useSetRecoilState, useRecoilState } from "recoil";
 import { useTheme} from "@/Context/theme-provider";
-
+import { useNavigate } from "react-router-dom";
 import {
   loadingAtom,
   leetcodeDataAtom,
@@ -27,8 +27,8 @@ const Board = () => {
   const [arrayData, setArrayData] = useRecoilState(arrayDataAtom);
   const [newUsername, setNewUsername] = useRecoilState(usernameAtom);
   const [leetcodeData, setLeetcodeData] = useRecoilState(leetcodeDataAtom);
-
-
+  const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
   // This function will fetch the single username and will add it to the existing array
   const fetchSingleUsernameData = async () => {
     const trimmedUsername = newUsername.trim();
@@ -155,7 +155,6 @@ const Board = () => {
   
 
   // fetches the entire array of usernames
-  
   const fetchUsernamesArray = async () => {
     try {
       setIsLoading(1);
@@ -174,9 +173,15 @@ const Board = () => {
         "Error fetching LeeterBoard:",
         error.response ? error.response.data : error.message
       );
+      if (error.response && error.response.status === 401) {
+        localStorage.removeItem("user");
+        dispatch({ type: "LOGOUT" });
+        navigate("/login");
+      }
+      setIsLoading(0);
     }
   };
-
+  
   const handleUsernameChange = (e) => {
     setNewUsername(e.target.value.trimStart());
   };
@@ -237,13 +242,14 @@ const Board = () => {
               placeholder="Enter the username"
               value={newUsername}
               onChange={handleUsernameChange}
-              className="addUsernameInput border-solid border-2 border-stone-700"
+              // className="addUsernameInput border-solid border-2  border-yellow-100"
+              className={`addUsernameInput border-solid border-2 ${theme==="light"?"border-amber-900  ":"border-yellow-100"} `}
          
             />
             <Button
-              variant="outline"
+              variant="secondary"
               onClick={handleAddUsername}
-              className="border-solid border-2 border-stone-700"
+              className={`border-solid border-2 ${theme==="light"?"border-amber-900  ":"border-yellow-100"}`}
             >
               Add
             </Button>

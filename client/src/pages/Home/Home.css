@@ -8,7 +8,6 @@
     justify-content: space-between;
     padding: 0.5rem 2.5rem 0.5rem 2.5rem;
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
-    /* background-color: rgba(201, 201, 201, 0.416); */
     backdrop-filter: blur(4px); 
     -webkit-backdrop-filter: blur(8px); 
     z-index: 1000; 
@@ -63,15 +62,7 @@
     width: 23px;
     height: 23px;
 }
-/* #logoutButton{
-    width: 80%;
-    height: 30px;
-margin-left: 12px;
-border-radius: 1rem;
-} */
-/* #logoutButtonBackGround{
-padding-left: 50px;
-} */
+
  #tester2{
     padding-top: 30px;
  }

@@ -7,8 +7,8 @@ import { useSetRecoilState, useRecoilValue} from "recoil";
 import { loadingAtom } from "../../Atoms/Atoms";
 import { Toaster } from "@/Components/ui/toaster"
 import NewNav from "@/Components/Navbar/Navbar";
-import NewSlider from "@/NewComp/NewSlider";
-
+import Slider from "@/Components/Slider/Slider";
+import SnapComponent from "@/Components/SnapComponent/SnapComponent";
 const Loader=()=>{
   return(
     <div className="loaderDiv">
@@ -132,7 +132,7 @@ setIsLoading(1);
 />
     <NewNav/>
       <div className="sidebar--div"> 
-    <NewSlider/>
+    <Slider/>
     </div>
       <div className="snapPage--main--div">
       <div className="snapPage--info container">

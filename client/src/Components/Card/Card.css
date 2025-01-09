@@ -81,7 +81,8 @@
 }
 .darkCard{
   color: #fff;
-  background-color: rgb(54, 63, 66);
+  background-color: rgba(12, 32, 34, 0.686);
+  border: 2px solid rgba(255, 255, 255, 0.247) ;
 }
 
 
@@ -90,7 +91,7 @@
 .progress-bar-container {
   width: 80%;
   height: 30px;
-  background-color: #424242;
+  background-color: #020202;
   border-radius: 10px;
   overflow: hidden;
   position: relative;

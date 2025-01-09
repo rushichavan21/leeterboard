@@ -1,13 +1,11 @@
 
-import React from "react";
-import { useAuthContext } from "../Hooks/useAuthContext";
+import { useAuthContext } from "../../Hooks/useAuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../pages/Home/Home.css";
-import { useToast } from "../Hooks/use-toast";
+import "../../pages/Home/Home.css";
+import { useToast } from "../../Hooks/use-toast";
 import { ToastAction } from "@/Components/ui/toast"
 
 import {
-  SidebarMenuSubButton,
   SidebarProvider,
   SidebarTrigger,
   Sidebar,
@@ -17,7 +15,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarFooter,
 } from "@/Components/ui/sidebar";
 
 
@@ -29,16 +26,6 @@ import {
   LogOutIcon,
   UnlockKeyhole,
 } from "lucide-react";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/Components/ui/alert-dialog";
 
 const items = [
   { title: "Home", icon: Home, task: "Home" },
@@ -154,29 +141,3 @@ export default NewSlider;
 
 
 
-  //             <SidebarFooter >
-  //               <SidebarMenuItem className="sidebar--icons">
-  //                 <SidebarMenuButton asChild>
-  //                   <button>
-  //                     <LogOutIcon id="iconSize" />
-  //                     <AlertDialog>
-  //                       <AlertDialogTrigger asChild>
-  //                         <button className="sidebar--elements" onClick={(event) => {
-  //   handleButtonClick(event); 
-
-  // }}>Logout</button>
-  //                       </AlertDialogTrigger>
-  //                       <AlertDialogContent>
-  //                         <AlertDialogHeader>
-  //                           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-  //                         </AlertDialogHeader>
-  //                         <AlertDialogFooter>
-  //                           <AlertDialogCancel>Cancel</AlertDialogCancel>
-  //                           <AlertDialogAction onClick={logout}>Logout</AlertDialogAction>
-  //                         </AlertDialogFooter>
-  //                       </AlertDialogContent>
-  //                     </AlertDialog>
-  //                   </button>
-  //                 </SidebarMenuButton>
-  //               </SidebarMenuItem>
-  //             </SidebarFooter>

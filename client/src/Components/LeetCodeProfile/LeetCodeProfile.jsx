@@ -1,6 +1,6 @@
 
 import '../Styles/LeetCodeProfile.css'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const LeetCodeProfile = ({ userId }) => {
   const [profileData, setProfileData] = useState(null);

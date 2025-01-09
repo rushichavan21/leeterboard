@@ -1,6 +1,6 @@
 
 import "./Navbar.css";
-import { ModeToggle } from '@/Components/ModeToggle'
+import { ModeToggle } from '@/Components/ModeToggle/ModeToggle'
 
 const Navbar = () => {
   return (

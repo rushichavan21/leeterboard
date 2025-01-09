@@ -11,10 +11,7 @@ const authMiddleware = async (req, res, next) => {
   const token=authorization.split(' ')[1];
   try {
     const {id}=jwt.verify(token,JWT_CODE)
-    // req.user= await UserDataModel.findOne({id}).select('_id');
     req.user=id;
-    console.log(req.user)
-    console.log(id)
     next();
   } catch (error) {
     console.log(error);
