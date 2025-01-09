@@ -6,7 +6,7 @@ import Board from '@/Components/Board/Board'
 import { useRecoilValue } from 'recoil'
 import { loadingAtom } from '@/Atoms/Atoms'
 import { Toaster } from "@/Components/ui/toaster"
-import '../../Styles/Loader.css'
+import '../../Styles/loader.css'
 
 const Between=()=>{
     return (
