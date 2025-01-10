@@ -9,6 +9,9 @@ import { Toaster } from "@/Components/ui/toaster"
 import NewNav from "@/Components/Navbar/Navbar";
 import Slider from "@/Components/Slider/Slider";
 import SnapComponent from "@/Components/SnapComponent/SnapComponent";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
+import { useTheme} from "@/Context/theme-provider";
 const Loader=()=>{
   return(
     <div className="loaderDiv">
@@ -28,7 +31,7 @@ const SnapPage = () => {
   const setIsLoading=useSetRecoilState(loadingAtom);
   const isLoading=useRecoilValue(loadingAtom);
   const snapDivRef = useRef(null);
-
+  const {theme}=useTheme();
   const QuestionStats = async () => {
     const trimmedUsername = username.trim();
     if (trimmedUsername === "") {
@@ -125,7 +128,9 @@ setIsLoading(1);
   }, []);
 
   return (
-    <>
+    <div className={`${theme=="light"?"":"snap-page-container-dark"}`}>
+
+ 
      <Toaster
   position="top-center"
   reverseOrder={false}
@@ -138,34 +143,41 @@ setIsLoading(1);
       <div className="snapPage--info container">
         <div>
           {" "}
-       <p>Welcome to the LeeterBoard Profile Snapshot Generator! Here, you can
-          instantly create a personalized snapshot of any LeetCode user's
-          progress and performance.</p>
+          <h1 className={`text-4xl font-bold text-center ${theme=="light"?"text-slate-950":""} `}>
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+    Discover
+    {" "}
+  </span>
+  , 
+  {" "}
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-400">
+    Analyze
+    {" "}
+  </span>
+  , and 
+  {" "}
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-red-500">
+    Share
+    {" "}
+  </span>
+  LeetCode Progress Instantly!
+</h1>
+
         </div>
         <div>
           {" "}
-       <p>   Simply enter a LeetCode username, and our tool will generate a
+       <p  className={` ${theme=="light"?"text-slate-950":""}`}>   Simply enter a LeetCode username, and our tool will generate a
           detailed profile analysis, showcasing statistics like problem-solving
           skills, recent achievements, ranking, and more.</p>
         </div>
        
       </div>
       <div className="inputBox  utilityInput container">
-        <input
-          type="text"
-          className="snapPageInput"
-          placeholder="Enter the Leetcode Username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
+        <Input   type="text" placeholder="Enter the Leetcode Username" id="snapPageInput" className={`${theme=='light'?"border-slate-950":"border-neutral-100"}`}  value={username}    onChange={handleUsernameChange}>
+        </Input>
         {showDownloadButton?<div className="downloadButton" >
-        <button className="Buttons" onClick={handleDownload}>
-        Download
-      </button>
-        </div>: <button className="Buttons" onClick={handleOnClick}>
-          {" "}
-          Generate
-        </button>}
+          <Button onClick={handleDownload}>Download </Button>
+        </div>: <Button onClick={handleOnClick}>Generate</Button>}
       </div>
       {profileStatsData && profileStatsData.stats ? (
         <SnapComponent
@@ -184,7 +196,7 @@ setIsLoading(1);
     </div>
     {isLoading?<Loader/>:null}
     <Toaster/>
-    </>
+    </div>
     );};
      
 

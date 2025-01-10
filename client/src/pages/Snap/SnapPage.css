@@ -4,36 +4,40 @@
     justify-content: center;
     flex-direction: column;
   
+  
 }
 .snapPage--info{
-    margin-top: 3.5rem;
+    margin-top: 12rem;
     padding-top: 2rem;
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
 .snapPage--info div p{
-   padding: 1rem 0 1rem 0;
-   font-weight: 200;
-   font-size: 2rem;
-   color: rgba(240, 248, 255, 0.77);
+   padding: 2rem 0 1rem 0;
+   font-weight: 400;
+   font-size: 1.5rem;
    text-align: center;
    max-width: 50ch;
 }
-.snapPageInput{
-border-radius: 2rem;
-padding:  0.25rem;
-color: white;
+.snapPage--info div h1{
+    text-align: center;
+    font-weight: 500;
+    font-size: 2rem;
+    max-width: 500px;
+ }
+ .snapPage--info div h1 span{
+    font-weight: 500;
+ }
+#snapPageInput{
 font-weight: 400;
 text-align: center;
-background-color: #282727;
-border: 1px solid white;
 font-family: poppins;
-font-size: 20px;
+font-size: 1rem;
 width: 300px;
 margin-right: 1rem;
+border-width: 2px;
 }
 .snapPageInput::placeholder{
     color:white; 
@@ -48,7 +52,7 @@ margin-right: 1rem;
     padding: 4rem;
 }
 .downloadButton button{
-    color: chartreuse;
+    color: rgb(0, 0, 0);
 }
 .downloadButton button:hover{
     background-color: chartreuse;
@@ -57,7 +61,7 @@ margin-right: 1rem;
 .utilityInput{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 2rem;
   
 }
@@ -67,3 +71,12 @@ margin-right: 1rem;
 .modifiedLoader{
   align-items: center;
 }
+.snap-page-container-dark {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.732)), var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  

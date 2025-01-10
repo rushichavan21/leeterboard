@@ -70,7 +70,7 @@ app.post("/login", async (req, res) => {
   const matchCheck = await bcrypt.compare(password, findUser.password);
   if (matchCheck) {
     const token = await jwt.sign({ id: findUser._id }, JWT_CODE, {
-      expiresIn: "1d",
+      expiresIn: "6d",
     });
     return res.json({
       email: email,
