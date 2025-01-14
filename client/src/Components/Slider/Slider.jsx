@@ -29,7 +29,7 @@ import {
 
 const items = [
   { title: "Home", icon: Home, task: "Home" },
-  { title: "Discuss", icon: Inbox, task: "Messages" },
+  { title: "Discuss", icon: Inbox, task: "discuss" },
   { title: "Snap", icon: CameraIcon, task: "Snap" },
   { title: "Public Room", icon: UnlockKeyhole, task: "Public" },
   { title: "Private Room", icon: Lock, task: "Private" },
@@ -53,7 +53,7 @@ export function AppSidebar() {
         break;
       case "Snap":
         if (location.pathname === "/generate_snap") {
-          toast({ title: `You are on HomePage Already` });
+          toast({ title: `You are on snap page Already` });
         } else {
           navigate("/generate_snap");
         }
@@ -64,8 +64,13 @@ export function AppSidebar() {
       case "Public":
         toast({ title: `Launching Soon` });
         break;
-      case "Messages":
+      case "discuss":
         toast({ title: `Launching Soon` });
+        if (location.pathname === "/discuss") {
+          toast({ title: `You are on discuss page Already` });
+        } else {
+          navigate("/discuss");
+        }
         break;
       case "logout":
         logout();
@@ -121,7 +126,7 @@ const handleButtonClick = (event) => {
   );
 }
 
-const NewSlider = ({ children }) => (
+const Slider = ({ children }) => (
   <div className="newsidebar--Wrapper">
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
@@ -133,7 +138,7 @@ const NewSlider = ({ children }) => (
   </div>
 );
 
-export default NewSlider;
+export default Slider;
 
 
 

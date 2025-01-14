@@ -13,8 +13,8 @@
 
 /* ... */
 html.dark {
-  --bg-image: url("/BG-Grid.svg");
-  --gradient-bg: rgba(0, 0, 0, 0), rgba(225, 233, 165, 0.196);
+  --bg-image: url("/BG-Grid.svg"); 
+  --gradient-bg: rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.732);
 }
 html.light {
   --bg-image: url("/BG-Grid-Light.svg");

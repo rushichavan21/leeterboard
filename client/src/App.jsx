@@ -5,6 +5,7 @@ import SignupPage from './pages/Signup/Signup'
 import { useAuthContext } from './Hooks/useAuthContext'
 import SnapPage from './pages/Snap/SnapPage'
 import Home from './pages/Home/Home'
+import Discuss from './pages/Discuss/Interview'
 
 const App = () => {
   const {user,loading}=useAuthContext();
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/signup' element={!user?<SignupPage/>:<Navigate to='/'/>}/>
         <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>
         <Route path='/generate_snap' element={user?<SnapPage/>:<Navigate to="/login"/>}/>
+        <Route path='/discuss' element={user?<Discuss/>:<Navigate to="/login"/>}/>
       </Routes>
     </div>
   )
