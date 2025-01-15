@@ -1,6 +1,9 @@
 import Navbar from "@/Components/Navbar/Navbar";
 import Slider from "@/Components/Slider/Slider";
 import "./Interview.css";
+import InterviewCard from "@/Components/InterviewCard/InterviewCard";
+import { Button } from "@/Components/ui/button";
+import ControlSection from "@/Components/Controls-interview/ControlSection";
 const Discuss = () => {
   const categories = [
     "Internship",
@@ -31,7 +34,19 @@ const Discuss = () => {
           </button>
         ))}
       </div>
-        
+        <div className="subdiv-interview">
+          <div className="controls-section">
+            {/* <Button>Create</Button>
+            <Button>your posts</Button> */}
+            <ControlSection/>
+          </div>
+          <div className="cards-interview">
+            <InterviewCard/>
+            <InterviewCard/>
+            <InterviewCard/>
+            <InterviewCard/>
+          </div>
+        </div>
     </div>
   );
 };
