@@ -1,9 +1,9 @@
 import Navbar from "../Navbar/Navbar"
 import "./Experience.css"
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/Components/ui/card";
+import { Badge } from "@/Components/ui/badge";
+import { Separator } from "@/Components/ui/separator";
 import { Clock, BookOpen, Target, Route, Library, Gavel } from 'lucide-react';
 const Experience = () => {
   return (
