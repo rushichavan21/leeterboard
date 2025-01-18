@@ -94,7 +94,7 @@ const SignupPage = () => {
       </div>
       <div className="login-form signup-form container" id="signupWidthFix">
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
+          <div className="input-group-login">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -106,7 +106,7 @@ const SignupPage = () => {
             />
           </div>
 
-          <div className="input-group">
+          <div className="input-group-login">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -118,7 +118,7 @@ const SignupPage = () => {
             />
           </div>
 
-          <div className="input-group">
+          <div className="input-group-login">
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"

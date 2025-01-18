@@ -8,7 +8,7 @@
   }
   
   .ctc-card { 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.249);
     border-radius: 12px;
     padding: 1.5rem;
     width: 300px;
@@ -132,6 +132,7 @@
     max-width: 768px;
   }
   .controls-section {
+    display: none;
     width: 100%;
     height: auto;
     align-items: center;
@@ -199,7 +200,7 @@
 
   .ctc-card,
   .button-group {
-    min-width: 280px; /* Slightly smaller for very small screens */
+    min-width: 280px; 
     padding: 1rem;
   }
 

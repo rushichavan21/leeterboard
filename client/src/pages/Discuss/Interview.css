@@ -129,6 +129,7 @@
     font-size: 2.5rem;
   }
   .subdiv-interview {
+ 
     flex-direction: column;
     height: auto;
   }
@@ -137,8 +138,7 @@
     height: calc(100vh - 20rem);
   }
   .controls-section {
-    width: 100%;
-    padding: 1rem;
+   display: none;
   }
 }
 
@@ -153,6 +153,9 @@
   .categories-button {
     margin: 0.75rem;
   }
+  .controls-section {
+    display: none;
+   }
 }
 
 @media (max-width: 640px) {

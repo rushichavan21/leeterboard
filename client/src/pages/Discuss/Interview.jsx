@@ -23,7 +23,7 @@ const Discuss = () => {
           InterView{" "}
         </span>{" "}
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-red-500">
-          {" "}
+          {" "} 
           Experiences{" "}
         </span>
       </div>
@@ -33,6 +33,8 @@ const Discuss = () => {
             {value}
           </button>
         ))}
+        <Button>Post New</Button>
+        <Button>View your posts</Button>
       </div>
         <div className="subdiv-interview">
           <div className="controls-section">

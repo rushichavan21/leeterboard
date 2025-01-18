@@ -43,19 +43,19 @@
   color: #faf7f0;
 }
 
-.input-group label {
+.input-group-login label {
   display: block;
   padding: 5px 0.5rem;
   font-size: 1.25rem;
   font-weight: 300;
   color: #faf7f0;
 }
-.input-group{
+.input-group-login{
   display: flex;
   flex-direction: column;
 }
 
-.input-group input {
+.input-group-login input {
 
   max-width: 100%;
   padding: 10px;

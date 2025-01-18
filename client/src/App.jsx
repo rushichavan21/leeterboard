@@ -6,6 +6,7 @@ import { useAuthContext } from './Hooks/useAuthContext'
 import SnapPage from './pages/Snap/SnapPage'
 import Home from './pages/Home/Home'
 import Discuss from './pages/Discuss/Interview'
+import Experience from './Components/Experience/Experience'
 
 const App = () => {
   const {user,loading}=useAuthContext();
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>
         <Route path='/generate_snap' element={user?<SnapPage/>:<Navigate to="/login"/>}/>
         <Route path='/discuss' element={user?<Discuss/>:<Navigate to="/login"/>}/>
+        <Route path='/testing' element={user?<Experience/>:<Navigate to="/login"/>}/>
       </Routes>
     </div>
   )

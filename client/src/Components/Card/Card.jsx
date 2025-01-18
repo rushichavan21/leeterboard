@@ -68,8 +68,8 @@ const removeFromDatabase=async (usernameToRemove)=>{
   
 
   return (
-    <div className={`CardWrapper ${theme==="light"?"lightCard":"darkCard"}`}>
-      <div className="info">
+    <div className={`CardWrapper container ${theme==="light"?"lightCard":"darkCard"}`}>
+      <div className="info-card">
         <div className="infoInfo">
         <h3>{`${username}`}</h3>
         <h3>{`LeeterBoard Rank:  ${rank}`}</h3>

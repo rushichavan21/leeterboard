@@ -97,7 +97,7 @@ const Login = () => {
       <div className="login-form ">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className='input-group'>
+          <div className='input-group-login'>
             <label htmlFor="email">Email</label>
             <input type="email"
             name='email'
@@ -107,7 +107,7 @@ const Login = () => {
             placeholder='Enter your Email' />
           </div>
 
-          <div className='input-group'>
+          <div className='input-group-login'>
             <label htmlFor="password">Password</label>
             <input type="password" id="password"
             name='password'

@@ -1,5 +1,5 @@
 // ControlSection.jsx
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import './ControlSection.css';
 import { Button } from '../ui/button';
 
@@ -69,14 +69,9 @@ const ControlSection = () => {
             className="slider"
           />
         <div>
-        <Button>search</Button>
+        <Button variant="outline">search</Button>
         </div>
         </div>
-      </div>
-
-      <div className="button-group">
-        <Button>Create</Button>
-        <Button>Your Posts</Button>
       </div>
     </div>
   );

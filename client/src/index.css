@@ -88,7 +88,7 @@ body::before {
   .between img {
     max-width: 50px;
   }
-  .info h3 {
+  .info-card h3 {
     font-size: 15px;
   }
   .Buttons {
@@ -141,7 +141,7 @@ body::before {
     flex-direction: column;
     padding-right: 2rem;
   }
-  .info {
+  .info-card {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -238,7 +238,7 @@ body::before {
   .infoInfo h3 {
     font-size: 14px;
   }
-  .info {
+  .info-card {
     padding: 0 0.75rem 0 1rem;
   }
   .buttonsDiv {
