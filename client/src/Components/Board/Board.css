@@ -69,3 +69,84 @@
   justify-content: center;
   padding-top: 2rem;
 }
+
+/* Improved Input Box Styling */
+.addUsernameInput {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.addUsernameInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(222, 220, 74, 0.3);
+  transform: translateY(-2px);
+}
+
+.addUsernameInput::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+
+/* Input Container Styling */
+/*  */
+
+/* Add Button Styling */
+.AddUserNameFuncion button {
+  background: rgba(222, 220, 74, 0.2);
+  color: #fff;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.AddUserNameFuncion button:hover {
+  background: rgba(222, 220, 74, 0.3);
+  transform: translateY(-2px);
+}
+
+.AddUserNameFuncion button:active {
+  transform: translateY(0);
+}
+
+/* Dark/Light Theme Variations */
+.lightBoard .addUsernameInput {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+.lightBoard .addUsernameInput::placeholder {
+  color: #666;
+}
+
+.lightBoard .AddUserNameFuncion button {
+  background: rgba(193, 145, 46, 0.2);
+  color: #333;
+}
+
+.lightBoard .AddUserNameFuncion button:hover {
+  background: rgba(193, 145, 46, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .AddUserNameFuncion {
+    padding: 0.75rem;
+  }
+  
+  .addUsernameInput {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .AddUserNameFuncion button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

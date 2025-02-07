@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import axios from "axios";
 import { useToast } from "../../Hooks/use-toast";
 import { Input } from "@/Components/ui/input";
@@ -7,8 +7,8 @@ import { useAuthContext } from "../../Hooks/useAuthContext";
 import Card from "../Card/Card";
 import "./Board.css";
 import { useSetRecoilState, useRecoilState } from "recoil";
-import { useTheme } from "@/Context/theme-provider";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useTheme} from "@/Context/theme-provider";
+import { useNavigate } from "react-router-dom";
 import {
   loadingAtom,
   leetcodeDataAtom,
@@ -29,7 +29,6 @@ const Board = () => {
   const [leetcodeData, setLeetcodeData] = useRecoilState(leetcodeDataAtom);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
-  const location = useLocation();
   // This function will fetch the single username and will add it to the existing array
   const fetchSingleUsernameData = async () => {
     const trimmedUsername = newUsername.trim();
@@ -144,7 +143,6 @@ const Board = () => {
   
   
       setLeetcodeData(sortedData);
-      localStorage.setItem('lastDataUpdate', Date.now().toString());
     } catch (error) {
       console.error(
         "Error fetching LeetCode data:",
@@ -190,50 +188,17 @@ const Board = () => {
 
 
   useEffect(() => {
-    const fetchInitialData = async () => {
-      // Only fetch if data doesn't exist
-      if (leetcodeData.length === 0 || arrayData.length === 0) {
-        await fetchUsernamesArray();
-      }
+    const fetchUsername = async () => {
+      await fetchUsernamesArray();
     };
-    fetchInitialData();
+    fetchUsername();
   }, []);
 
   useEffect(() => {
-    // Only fetch leetcode data if arrayData changes and we don't have existing data
-    if (arrayData.length > 0 && leetcodeData.length === 0) {
+    if (arrayData.length >= 0) {
       fetchLeetcodeData();
     }
   }, [arrayData]);
-
-  // Add periodic refresh (optional)
-  useEffect(() => {
-    // Refresh data every 5 minutes if the page is active
-    const refreshInterval = setInterval(() => {
-      if (document.visibilityState === 'visible') {
-        fetchLeetcodeData();
-      }
-    }, 5 * 60 * 1000); // 5 minutes
-
-    return () => clearInterval(refreshInterval);
-  }, []);
-
-  // Add visibility change handler (optional)
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        // Refresh data when tab becomes visible after being hidden for > 5 minutes
-        const lastUpdate = localStorage.getItem('lastDataUpdate');
-        const now = Date.now();
-        if (lastUpdate && (now - parseInt(lastUpdate)) > 5 * 60 * 1000) {
-          fetchLeetcodeData();
-        }
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, []);
 
   return (
     <div

@@ -1,0 +1,364 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "tags": ["Internship", "MAANG"],
+      "title": "Google Software Engineering Internship Interview",
+      "basicCriteria": "CGPA above 8.5, strong DSA fundamentals, and problem-solving skills required. Previous project experience preferred.",
+      "preInterviewPreparation": "Solved 200+ LeetCode problems focusing on Arrays, Trees, and Graphs. Practiced system design concepts and completed 10+ mock interviews.",
+      "interviewSummary": {
+        "Duration": "3 rounds, 45 minutes each",
+        "Difficulty": "Moderate to Hard",
+        "TopicsCovered": ["Data Structures", "Algorithms", "Problem Solving", "Object-Oriented Design"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "The interview process at Google was comprehensive and well-structured. First round focused on data structures where I solved questions on binary trees and dynamic programming. The interviewer was helpful and provided hints when needed. Second round involved system design basics and coding implementation. The final round was a mix of algorithmic problem-solving and behavioral questions. The questions were challenging but fair, testing both theoretical knowledge and practical implementation skills.",
+      "recommendedResources": [
+        "LeetCode Premium",
+        "GeeksforGeeks DSA Course",
+        "System Design Primer",
+        "Cracking the Coding Interview"
+      ],
+      "finalVerdict": "Got selected in the first round itself. Focus on strong fundamentals and clear communication is key for Google interviews.",
+      "author": "Aryan Sharma",
+      "company": "Google",
+      "ctc": "10 LPA"
+    },
+    {
+      "id": 2,
+      "tags": ["Full-Time", "MAANG"],
+      "title": "Microsoft SDE Full-Time Interview Experience",
+      "basicCriteria": "CGPA above 8.0, strong understanding of system design principles, and excellent problem-solving abilities.",
+      "preInterviewPreparation": "Focused on high-level system design concepts, distributed systems, and scalability. Completed multiple mock system design interviews.",
+      "interviewSummary": {
+        "Duration": "4 rounds, 60 minutes each",
+        "Difficulty": "Hard",
+        "TopicsCovered": ["System Design", "Distributed Systems", "Scalability", "Microservices"],
+        "InterviewType": "On-site"
+      },
+      "detailedExperience": "Microsoft's interview process was intense but well-organized. The initial rounds focused on data structures and algorithms, covering topics like graph algorithms and dynamic programming. The system design rounds were particularly challenging, where I had to design a distributed cache system and discuss various trade-offs. The final rounds included discussions about my previous projects and behavioral aspects.",
+      "recommendedResources": [
+        "Grokking the System Design Interview",
+        "Designing Data-Intensive Applications",
+        "System Design Interview - Alex Xu",
+        "Microsoft Learn Platform"
+      ],
+      "finalVerdict": "Thorough preparation in system design helped immensely. Microsoft values both technical depth and breadth.",
+      "author": "Priya Patel",
+      "company": "Microsoft",
+      "ctc": "45 LPA"
+    },
+    {
+      "id": 3,
+      "tags": ["Full-Time", "Startup"],
+      "title": "Razorpay SDE Interview Experience",
+      "basicCriteria": "Strong knowledge of payment systems, backend development, and security principles. CGPA above 7.5 required.",
+      "preInterviewPreparation": "Studied payment gateway architecture, practiced system design for financial systems, and reviewed security best practices. Completed multiple projects using Node.js and Python.",
+      "interviewSummary": {
+        "Duration": "3 rounds, 60 minutes each",
+        "Difficulty": "Moderate to Hard",
+        "TopicsCovered": ["Payment Systems", "Security", "Backend Architecture", "API Design"],
+        "InterviewType": "Hybrid"
+      },
+      "detailedExperience": "The interview process at Razorpay was very practical and focused on real-world scenarios. The first round involved designing a payment reconciliation system. The second round focused on security aspects of payment processing and error handling. The final round included discussions about scalability and handling high-concurrency scenarios. They emphasized practical problem-solving over theoretical concepts.",
+      "recommendedResources": [
+        "System Design for Payment Systems",
+        "OWASP Security Guidelines",
+        "High Performance Browser Networking",
+        "Practical API Design Patterns"
+      ],
+      "finalVerdict": "Focus on practical problem-solving paid off. Razorpay values hands-on experience and security awareness.",
+      "author": "Rahul Verma",
+      "company": "Razorpay",
+      "ctc": "32 LPA"
+    },
+    {
+      "id": 4,
+      "tags": ["Internship", "MAANG"],
+      "title": "Amazon SDE Internship Interview",
+      "basicCriteria": "Strong DSA fundamentals, knowledge of OOP concepts, and good problem-solving skills. CGPA above 8.0 required.",
+      "preInterviewPreparation": "Completed 150+ LeetCode problems, participated in 15 mock interviews, and studied Amazon leadership principles thoroughly.",
+      "interviewSummary": {
+        "Duration": "2 rounds, 60 minutes each",
+        "Difficulty": "Moderate",
+        "TopicsCovered": ["Data Structures", "Leadership Principles", "System Design Basics", "Behavioral"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "Amazon's interview process heavily emphasized their leadership principles. The first round was a mix of DSA and behavioral questions, focusing on ownership and customer obsession. The second round involved a system design discussion about designing a basic e-commerce feature. The interviewers were particularly interested in how I handled past challenges and demonstrated leadership.",
+      "recommendedResources": [
+        "Amazon Leadership Principles Guide",
+        "LeetCode Amazon Tagged Questions",
+        "Cracking the Coding Interview",
+        "Behavioral Interview Preparation Guide"
+      ],
+      "finalVerdict": "Mock interviews were crucial for preparation. Understanding Amazon's culture and leadership principles was key.",
+      "author": "Neha Singh",
+      "company": "Amazon",
+      "ctc": "12 LPA"
+    },
+    {
+      "id": 5,
+      "tags": ["Full-Time", "Product"],
+      "title": "Adobe Software Engineer Interview",
+      "basicCriteria": "Strong understanding of computer graphics, algorithms, and software architecture. CGPA above 7.5 required.",
+      "preInterviewPreparation": "Deep dive into DSA, studied computer graphics fundamentals, and practiced system design for media processing systems.",
+      "interviewSummary": {
+        "Duration": "4 rounds, 45 minutes each",
+        "Difficulty": "Hard",
+        "TopicsCovered": ["Algorithms", "Computer Graphics", "System Design", "Media Processing"],
+        "InterviewType": "On-site"
+      },
+      "detailedExperience": "Adobe's interview process was comprehensive and focused on both theoretical and practical aspects. The initial rounds tested DSA concepts with a focus on optimization. Later rounds involved designing image processing systems and discussing scalability. The final round was with the hiring manager, discussing past projects and future goals. They particularly valued my understanding of graphics algorithms.",
+      "recommendedResources": [
+        "Introduction to Algorithms",
+        "Computer Graphics Principles",
+        "Adobe Tech Blog",
+        "System Design for Media Processing"
+      ],
+      "finalVerdict": "Strong fundamentals in DSA made the difference. Adobe values both theoretical knowledge and practical application.",
+      "author": "Karthik Reddy",
+      "company": "Adobe",
+      "ctc": "38 LPA"
+    },
+    {
+      "id": 6,
+      "tags": ["Full-Time", "MAANG"],
+      "title": "Meta (Facebook) Software Engineer Interview",
+      "basicCriteria": "Strong background in distributed systems, scalability concepts, and social network architecture. CGPA above 8.0 required.",
+      "preInterviewPreparation": "Focused on distributed systems design, studied Meta's tech stack, completed system design courses, and practiced behavioral scenarios.",
+      "interviewSummary": {
+        "Duration": "5 rounds, 45 minutes each",
+        "Difficulty": "Very Hard",
+        "TopicsCovered": ["Distributed Systems", "Social Graph", "Real-time Systems", "Product Design"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "Meta's interview process was rigorous and focused on scalability. Initial rounds covered coding challenges related to graph algorithms and real-time data processing. The system design rounds were particularly challenging, involving designing Facebook-like features at scale. The product sense round tested understanding of user behavior and metrics. Final rounds included behavioral questions and team fit discussions.",
+      "recommendedResources": [
+        "Designing Data-Intensive Applications",
+        "System Design Interview by Alex Xu",
+        "Meta Engineering Blog",
+        "Graph Algorithms in Depth"
+      ],
+      "finalVerdict": "System design rounds were challenging but rewarding. Focus on scalability and real-world applications is crucial.",
+      "author": "Anjali Kumar",
+      "company": "Meta",
+      "ctc": "50 LPA"
+    },
+    {
+      "id": 7,
+      "tags": ["Internship", "Startup"],
+      "title": "Zerodha Trading Platform Interview",
+      "basicCriteria": "Knowledge of financial markets, real-time systems, and low-latency programming. CGPA above 7.0 required.",
+      "preInterviewPreparation": "Studied financial technology concepts, learned about trading systems, practiced low-latency programming scenarios.",
+      "interviewSummary": {
+        "Duration": "3 rounds, 60 minutes each",
+        "Difficulty": "Moderate",
+        "TopicsCovered": ["Trading Systems", "Real-time Processing", "Financial Technology", "System Performance"],
+        "InterviewType": "On-site"
+      },
+      "detailedExperience": "The interview process focused heavily on practical knowledge. First round covered basic programming and financial concepts. Second round involved designing components of a trading system with emphasis on performance. Final round was a discussion about market dynamics and technology's role in trading.",
+      "recommendedResources": [
+        "Financial Markets Course",
+        "High-Performance Trading Systems",
+        "Zerodha Varsity",
+        "System Design for Trading Platforms"
+      ],
+      "finalVerdict": "Project experience helped in discussions. Understanding of financial markets was valuable.",
+      "author": "Rohan Mehta",
+      "company": "Zerodha",
+      "ctc": "8 LPA"
+    },
+    {
+      "id": 8,
+      "tags": ["Full-Time", "Product"],
+      "title": "Atlassian Software Developer Interview",
+      "basicCriteria": "Strong collaboration tools knowledge, agile methodologies, and scalable software design. CGPA above 7.5 required.",
+      "preInterviewPreparation": "Studied collaboration software architecture, practiced system design for team tools, reviewed Atlassian products thoroughly.",
+      "interviewSummary": {
+        "Duration": "4 rounds, 60 minutes each",
+        "Difficulty": "Hard",
+        "TopicsCovered": ["Collaboration Tools", "API Design", "Scalability", "Team Dynamics"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "Atlassian's process emphasized both technical and cultural fit. Technical rounds included designing collaborative features and real-time editing systems. System design round focused on scalability of team collaboration tools. Behavioral rounds were extensive, focusing on values and team dynamics.",
+      "recommendedResources": [
+        "Atlassian Design System",
+        "Collaborative Software Architecture",
+        "Real-time Collaboration Systems",
+        "Agile Development Practices"
+      ],
+      "finalVerdict": "Focus on behavioral preparation was key. Atlassian values cultural fit as much as technical skills.",
+      "author": "Shreya Gupta",
+      "company": "Atlassian",
+      "ctc": "42 LPA"
+    },
+    {
+      "id": 9,
+      "tags": ["Full-Time", "MAANG"],
+      "title": "Apple Software Engineer Interview",
+      "basicCriteria": "Excellence in systems programming, performance optimization, and user experience design. CGPA above 8.5 required.",
+      "preInterviewPreparation": "Deep dive into systems programming, studied Apple's design philosophy, practiced performance optimization problems.",
+      "interviewSummary": {
+        "Duration": "5 rounds, 60 minutes each",
+        "Difficulty": "Very Hard",
+        "TopicsCovered": ["Systems Programming", "Performance Optimization", "UX Design", "Architecture"],
+        "InterviewType": "Hybrid"
+      },
+      "detailedExperience": "Apple's interview process was thorough and detail-oriented. Initial rounds focused on low-level system design and optimization. Middle rounds covered user experience and interface design principles. Later rounds involved complex system architecture discussions. Final round was with senior engineers discussing innovation and future technology trends.",
+      "recommendedResources": [
+        "Advanced Programming in Unix Environment",
+        "Apple Human Interface Guidelines",
+        "Performance Engineering of Software Systems",
+        "Modern Operating Systems"
+      ],
+      "finalVerdict": "In-depth knowledge of core CS concepts helped. Apple values attention to detail and user-centric thinking.",
+      "author": "Aditya Shah",
+      "company": "Apple",
+      "ctc": "55 LPA"
+    },
+    {
+      "id": 10,
+      "tags": ["Internship", "Product"],
+      "title": "PayPal Financial Technology Interview",
+      "basicCriteria": "Understanding of payment systems, security protocols, and distributed systems. CGPA above 7.5 required.",
+      "preInterviewPreparation": "Studied payment processing systems, security best practices, and financial technology architecture.",
+      "interviewSummary": {
+        "Duration": "3 rounds, 45 minutes each",
+        "Difficulty": "Moderate",
+        "TopicsCovered": ["Payment Systems", "Security", "Financial Technology", "API Design"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "PayPal's interview focused on practical aspects of financial technology. First round covered basic programming and security concepts. Second round involved designing secure payment flows. Final round included discussions about scalability and fraud prevention.",
+      "recommendedResources": [
+        "Payment Systems Architecture",
+        "Security in Financial Systems",
+        "PayPal Tech Blog",
+        "Financial API Design"
+      ],
+      "finalVerdict": "Previous internship experience was valuable. Understanding of security principles was crucial.",
+      "author": "Ritu Sharma",
+      "company": "PayPal",
+      "ctc": "9 LPA"
+    },
+    {
+      "id": 11,
+      "tags": ["Full-Time", "MAANG"],
+      "title": "Netflix Platform Engineer Interview",
+      "basicCriteria": "Expert knowledge in distributed systems, microservices architecture, and cloud technologies. CGPA above 8.0 required.",
+      "preInterviewPreparation": "Extensive study of microservices patterns, chaos engineering principles, and Netflix tech stack. Practiced system design for streaming platforms.",
+      "interviewSummary": {
+        "Duration": "4 rounds, 60 minutes each",
+        "Difficulty": "Very Hard",
+        "TopicsCovered": ["Microservices", "Cloud Architecture", "Chaos Engineering", "Scalability"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "Netflix's interview process was heavily focused on distributed systems and scalability. First round covered microservices architecture and design patterns. Second round focused on fault tolerance and chaos engineering principles. Third round involved designing Netflix-like streaming features. Final round was about cultural fit and engineering values. They particularly emphasized resilience engineering and scalable architectures.",
+      "recommendedResources": [
+        "Netflix Tech Blog",
+        "Designing Distributed Systems",
+        "Chaos Engineering Principles",
+        "Microservices Patterns"
+      ],
+      "finalVerdict": "System design and microservices knowledge was crucial. Netflix values innovation and scalability thinking.",
+      "author": "Vikram Malhotra",
+      "company": "Netflix",
+      "ctc": "48 LPA"
+    },
+    {
+      "id": 12,
+      "tags": ["Internship", "Product"],
+      "title": "Uber Software Engineering Intern Interview",
+      "basicCriteria": "Strong in algorithms, location-based services, and real-time systems. CGPA above 7.5 required.",
+      "preInterviewPreparation": "Focused on location algorithms, practiced system design for ride-sharing platforms, studied real-time matching systems.",
+      "interviewSummary": {
+        "Duration": "3 rounds, 45 minutes each",
+        "Difficulty": "Moderate to Hard",
+        "TopicsCovered": ["Location Services", "Real-time Systems", "Algorithms", "OOP"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "Uber's interview focused on practical problem-solving. First round tested algorithmic thinking with location-based problems. Second round involved designing components of a ride-matching system. Final round included object-oriented design and coding implementation. They were particularly interested in optimization and efficiency.",
+      "recommendedResources": [
+        "Geospatial Algorithms",
+        "System Design for Location Services",
+        "Real-time Processing Systems",
+        "Object-Oriented Design Patterns"
+      ],
+      "finalVerdict": "Strong problem-solving skills and OOP concepts helped. Focus on practical applications was important.",
+      "author": "Sanya Kapoor",
+      "company": "Uber",
+      "ctc": "11 LPA"
+    },
+    {
+      "id": 13,
+      "tags": ["Full-Time", "Startup"],
+      "title": "Swiggy Backend Engineer Interview",
+      "basicCriteria": "Expertise in backend development, distributed systems, and delivery system architecture. CGPA above 7.0 required.",
+      "preInterviewPreparation": "Studied food delivery system architecture, logistics optimization, and scalable backend design.",
+      "interviewSummary": {
+        "Duration": "4 rounds, 45 minutes each",
+        "Difficulty": "Hard",
+        "TopicsCovered": ["Backend Architecture", "Logistics Systems", "Database Design", "API Design"],
+        "InterviewType": "On-site"
+      },
+      "detailedExperience": "Swiggy's interview process emphasized practical system design. First round was DSA and problem-solving. Second round focused on designing delivery assignment systems. Third round covered database design and optimization. Final round included architectural discussions and team fit. They particularly valued understanding of real-world constraints.",
+      "recommendedResources": [
+        "System Design for Logistics",
+        "Database Design Patterns",
+        "API Design Best Practices",
+        "Scalable Backend Architecture"
+      ],
+      "finalVerdict": "Focus on scalability and real-world applications paid off. Understanding of logistics systems was valuable.",
+      "author": "Varun Iyer",
+      "company": "Swiggy",
+      "ctc": "28 LPA"
+    },
+    {
+      "id": 14,
+      "tags": ["Full-Time", "Product"],
+      "title": "Intuit Software Engineer Interview",
+      "basicCriteria": "Strong in financial software systems, database optimization, and enterprise architecture. CGPA above 7.5 required.",
+      "preInterviewPreparation": "Deep dive into financial software architecture, studied database optimization, practiced enterprise system design.",
+      "interviewSummary": {
+        "Duration": "4 rounds, 60 minutes each",
+        "Difficulty": "Hard",
+        "TopicsCovered": ["Database Design", "Financial Systems", "Enterprise Architecture", "Security"],
+        "InterviewType": "Hybrid"
+      },
+      "detailedExperience": "Intuit's process focused on enterprise software design. First round tested SQL optimization and database design. Second round involved financial system architecture. Third round covered security and compliance. Final round was about system integration and scalability. They emphasized robust and maintainable solutions.",
+      "recommendedResources": [
+        "Database Performance Tuning",
+        "Enterprise Integration Patterns",
+        "Financial Software Architecture",
+        "Security in Enterprise Systems"
+      ],
+      "finalVerdict": "Database design and SQL optimization questions were key. Focus on enterprise-grade solutions was important.",
+      "author": "Meera Rajesh",
+      "company": "Intuit",
+      "ctc": "35 LPA"
+    },
+    {
+      "id": 15,
+      "tags": ["Internship", "MAANG"],
+      "title": "Microsoft Research Intern Interview",
+      "basicCriteria": "Strong academic background, research aptitude, and coding skills. CGPA above 8.5 required.",
+      "preInterviewPreparation": "Regular practice on coding platforms, research paper reading, implementation of algorithms.",
+      "interviewSummary": {
+        "Duration": "3 rounds, 60 minutes each",
+        "Difficulty": "Hard",
+        "TopicsCovered": ["Algorithms", "Research Topics", "Implementation", "Problem Solving"],
+        "InterviewType": "Virtual"
+      },
+      "detailedExperience": "Microsoft Research interview was academically oriented. First round focused on algorithmic problem-solving. Second round involved discussing potential research areas and previous projects. Final round included implementation challenges and research methodology discussions. They valued both theoretical knowledge and practical implementation skills.",
+      "recommendedResources": [
+        "Research Papers in Systems & ML",
+        "Advanced Algorithms",
+        "Microsoft Research Blog",
+        "Competitive Programming Sites"
+      ],
+      "finalVerdict": "Regular practice on coding platforms was essential. Balance of theoretical and practical knowledge was key.",
+      "author": "Arjun Nair",
+      "company": "Microsoft",
+      "ctc": "12 LPA"
+    }
+  ]
+}

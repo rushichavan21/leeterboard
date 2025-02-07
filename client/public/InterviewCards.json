@@ -1,0 +1,124 @@
+{
+    "cards": [
+      {
+        "id": 1,
+        "name": "Aryan Sharma",
+        "tags": ["Internship", "MAANG"],
+        "company": "Google",
+        "ctc": "10 LPA",
+        "testimonial": "Got selected in the first round itself."
+      },
+      {
+        "id": 2,
+        "name": "Priya Patel",
+        "tags": ["Full-Time", "MAANG"],
+        "company": "Microsoft",
+        "ctc": "45 LPA",
+        "testimonial": "Thorough preparation in system design helped immensely."
+      },
+      {
+        "id": 3,
+        "name": "Rahul Verma",
+        "tags": ["Full-Time", "Startup"],
+        "company": "Razorpay",
+        "ctc": "32 LPA",
+        "testimonial": "Focus on practical problem-solving paid off."
+      },
+      {
+        "id": 4,
+        "name": "Neha Singh",
+        "tags": ["Internship", "MAANG"],
+        "company": "Amazon",
+        "ctc": "12 LPA",
+        "testimonial": "Mock interviews were crucial for preparation."
+      },
+      {
+        "id": 5,
+        "name": "Karthik Reddy",
+        "tags": ["Full-Time", "Product"],
+        "company": "Adobe",
+        "ctc": "38 LPA",
+        "testimonial": "Strong fundamentals in DSA made the difference."
+      },
+      {
+        "id": 6,
+        "name": "Anjali Kumar",
+        "tags": ["Full-Time", "MAANG"],
+        "company": "Meta",
+        "ctc": "50 LPA",
+        "testimonial": "System design rounds were challenging but rewarding."
+      },
+      {
+        "id": 7,
+        "name": "Rohan Mehta",
+        "tags": ["Internship", "Startup"],
+        "company": "Zerodha",
+        "ctc": "8 LPA",
+        "testimonial": "Project experience helped in discussions."
+      },
+      {
+        "id": 8,
+        "name": "Shreya Gupta",
+        "tags": ["Full-Time", "Product"],
+        "company": "Atlassian",
+        "ctc": "42 LPA",
+        "testimonial": "Focus on behavioral preparation was key."
+      },
+      {
+        "id": 9,
+        "name": "Aditya Shah",
+        "tags": ["Full-Time", "MAANG"],
+        "company": "Apple",
+        "ctc": "55 LPA",
+        "testimonial": "In-depth knowledge of core CS concepts helped."
+      },
+      {
+        "id": 10,
+        "name": "Ritu Sharma",
+        "tags": ["Internship", "Product"],
+        "company": "PayPal",
+        "ctc": "9 LPA",
+        "testimonial": "Previous internship experience was valuable."
+      },
+      {
+        "id": 11,
+        "name": "Vikram Malhotra",
+        "tags": ["Full-Time", "MAANG"],
+        "company": "Netflix",
+        "ctc": "48 LPA",
+        "testimonial": "System design and microservices knowledge was crucial."
+      },
+      {
+        "id": 12,
+        "name": "Sanya Kapoor",
+        "tags": ["Internship", "Product"],
+        "company": "Uber",
+        "ctc": "11 LPA",
+        "testimonial": "Strong problem-solving skills and OOP concepts helped."
+      },
+      {
+        "id": 13,
+        "name": "Varun Iyer",
+        "tags": ["Full-Time", "Startup"],
+        "company": "Swiggy",
+        "ctc": "28 LPA",
+        "testimonial": "Focus on scalability and real-world applications paid off."
+      },
+      {
+        "id": 14,
+        "name": "Meera Rajesh",
+        "tags": ["Full-Time", "Product"],
+        "company": "Intuit",
+        "ctc": "35 LPA",
+        "testimonial": "Database design and SQL optimization questions were key."
+      },
+      {
+        "id": 15,
+        "name": "Arjun Nair",
+        "tags": ["Internship", "MAANG"],
+        "company": "Microsoft",
+        "ctc": "12 LPA",
+        "testimonial": "Regular practice on coding platforms was essential."
+      }
+    ]
+  }

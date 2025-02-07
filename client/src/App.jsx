@@ -1,4 +1,3 @@
-
 import {Routes,Route,Navigate} from 'react-router-dom'
 import Login from './pages/Login/Login'
 import SignupPage from './pages/Signup/Signup'
@@ -22,7 +21,7 @@ const App = () => {
         <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>
         <Route path='/generate_snap' element={user?<SnapPage/>:<Navigate to="/login"/>}/>
         <Route path='/discuss' element={user?<Discuss/>:<Navigate to="/login"/>}/>
-        <Route path='/testing' element={user?<Experience/>:<Navigate to="/login"/>}/>
+        <Route path='/experience/:id' element={user?<Experience/>:<Navigate to="/login"/>}/>
       </Routes>
     </div>
   )

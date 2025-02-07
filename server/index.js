@@ -139,6 +139,7 @@ app.post("/addUsername", authMiddleware, async (req, res) => {
 // GET THE USERNAMES ARRAY FROM THE DATABASE
 app.get("/getArray", authMiddleware, async (req, res) => {
   const userId = req.user;
+  
   try {
     const user = await UserDataModel.findById(userId);
     if (!user) {
