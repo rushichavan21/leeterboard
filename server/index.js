@@ -30,8 +30,6 @@ app.post("/signup", async (req, res) => {
     await UserDataModel.create({
       email: email,
       password: hashedPassword,
-      privateRooms: [],
-      myUsername: myUsername,
     });
 
     const findUser = await UserDataModel.findOne({
@@ -44,8 +42,7 @@ app.post("/signup", async (req, res) => {
 
     return res.status(200).json({
       email,
-      token,
-      myUsername,
+      token
     });
   } catch (error) {
     console.log(error.message);

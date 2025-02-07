@@ -16,13 +16,7 @@ const UserData = new Schema({
     type: [String],
     required: true,
     default: [],
-  },
-  privateRooms:{
-    type:[],
-    required:true,
-    unique:false,
-  },
-  
+  }
 });
 
 
