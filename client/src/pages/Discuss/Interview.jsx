@@ -2,7 +2,7 @@ import Navbar from "@/Components/Navbar/Navbar";
 import Slider from "@/Components/Slider/Slider";
 import "./Interview.css";
 import InterviewCard from "@/Components/InterviewCard/InterviewCard";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/Components/ui/button";
 import React, { useState, useEffect } from "react";
 
 const Discuss = () => {
