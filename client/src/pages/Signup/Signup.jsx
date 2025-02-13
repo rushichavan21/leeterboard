@@ -1,4 +1,3 @@
-
 import toast, { Toaster } from "react-hot-toast";
 import "./SignupPage.css";
 import { Link } from "react-router-dom";
@@ -25,62 +24,31 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      toast.error("Passwords do not match!", {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-          fontWeight: "400",
-          fontFamily: "Poppins, sans-serif",
-        },
-      });
+      toast.error("Passwords do not match!");
       return;
     }
 
     try {
-      toast.success("loading...", {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-          fontWeight: "400",
-          fontFamily: "Poppins, sans-serif",
-        },
-      });
+      toast.loading("Signing up...");
+      
       const response = await axios.post(
         `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/signup`,
         {
-          username: formData.username,
           email: formData.email,
           password: formData.password,
         }
       );
 
       const json = response.data;
-
-      // save the user to local storage
+      
       localStorage.setItem("user", JSON.stringify(json));
-      // update the auth context
+      
       dispatch({ type: "LOGIN", payload: json });
-      toast.success("Signup successful!", {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-          fontWeight: "400",
-          fontFamily: "Poppins, sans-serif",
-        },
-      });
+      toast.dismiss();
+      toast.success("Signup successful!");
     } catch (err) {
-      toast.error("Signup failed. please try again", {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-          fontWeight: "400",
-          fontFamily: "Poppins, sans-serif",
-        },
-      });
+      toast.dismiss();
+      toast.error(err.response?.data?.error || "Signup failed. Please try again");
     }
   };
   return (

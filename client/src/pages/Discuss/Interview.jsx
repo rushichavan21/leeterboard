@@ -4,6 +4,7 @@ import "./Interview.css";
 import InterviewCard from "@/Components/InterviewCard/InterviewCard";
 import { Button } from "@/Components/ui/button";
 import React, { useState, useEffect } from "react";
+import { Toaster } from "@/Components/ui/toaster";
 
 const Discuss = () => {
   const categories = [
@@ -84,6 +85,7 @@ const Discuss = () => {
           <p className="text-gray-500 text-lg">No cards available for this category.</p>
         )}
       </div>
+      <Toaster />
     </div>
   );
 };

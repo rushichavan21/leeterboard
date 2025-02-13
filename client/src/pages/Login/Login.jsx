@@ -33,7 +33,6 @@ const Login = () => {
       },
     });
     const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/login`, {
-      username: formData.username,
       email: formData.email,
       password: formData.password,
     });

@@ -1,4 +1,3 @@
-
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../../pages/Home/Home.css";
@@ -27,13 +26,13 @@ import {
   UnlockKeyhole,
 } from "lucide-react";
 
-const items = [
-  { title: "Home", icon: Home, task: "Home" },
-  { title: "Discuss", icon: Inbox, task: "discuss" },
-  { title: "Snap", icon: CameraIcon, task: "Snap" },
-  { title: "Public Room", icon: UnlockKeyhole, task: "Public" },
-  { title: "Private Room", icon: Lock, task: "Private" },
-  { title: "logout", icon: LogOutIcon, task: "logout" },
+const navigationItems = [
+  { title: "Home", icon: Home, task: "Home", path: "/" },
+  { title: "Interview", icon: Inbox, task: "discuss", path: "/discuss" },
+  { title: "Snap", icon: CameraIcon, task: "Snap", path: "/generate_snap" },
+  { title: "Public Room", icon: UnlockKeyhole, task: "Public", comingSoon: true },
+  { title: "VJTI CUSTOM", icon: Lock, task: "Private", comingSoon: true },
+  { title: "Logout", icon: LogOutIcon, task: "logout" },
 ];
 
 export function AppSidebar() {
@@ -42,73 +41,49 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavigation = (task) => {
-    switch (task) {
-      case "Home":
-        if (location.pathname === "/") {
-          toast({ title: `You are on HomePage Already` });
-        } else {
-          navigate("/");
-        }
-        break;
-      case "Snap":
-        if (location.pathname === "/generate_snap") {
-          toast({ title: `You are on snap page Already` });
-        } else {
-          navigate("/generate_snap");
-        }
-        break;
-      case "Private":
-        toast({ title: `Launching Soon` });
-        break;
-      case "Public":
-        toast({ title: `Launching Soon` });
-        break;
-      case "discuss":
-        toast({ title: `Launching Soon` });
-        if (location.pathname === "/discuss") {
-          toast({ title: `You are on discuss page Already` });
-        } else {
-          navigate("/discuss");
-        }
-        break;
-      case "logout":
-        logout();
-        break
-      default:
-        console.log("No action defined for", task);
+  const handleNavigation = (item) => {
+    if (item.comingSoon) {
+      toast({ title: "Launching Soon" });
+      return;
     }
+
+    if (item.task === "logout") {
+      handleLogoutClick();
+      return;
+    }
+
+    if (location.pathname === item.path) {
+      toast({ title: `You are on ${item.title} page already` });
+      return;
+    }
+
+    navigate(item.path);
   };
-  const handleLogout=()=>{
+
+  const handleLogoutClick = () => {
+    toast({
+      title: "Are You Sure?",
+      action: <ToastAction onClick={handleLogout} altText="Logout">Logout</ToastAction>,
+    });
+  };
+
+  const handleLogout = () => {
     localStorage.removeItem("user");
     dispatch({ type: "LOGOUT" });
     navigate("/");
-  }
-  const logout = () => {
-    toast({
-      title: "Are You Sure?",
-      description: "",
-      action: <ToastAction onClick={handleLogout} altText="Logout">Logout</ToastAction>,
-    })
   };
 
-
-const handleButtonClick = (event) => {
-  event.stopPropagation();
-};  return (
+  return (
     <Sidebar className="sidebarComp" collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupContent
-             className="sidebar--icons"
-          >
+          <SidebarGroupContent className="sidebar--icons">
             <SidebarMenu>
-              {items.map((item) => (
+              {navigationItems.map((item) => (
                 <SidebarMenuItem
                   key={item.title}
-                
-                 id="tryToCenter"
-                  onClick={() => handleNavigation(item.task)}
+                  id="tryToCenter"
+                  onClick={() => handleNavigation(item)}
                 >
                   <SidebarMenuButton asChild>
                     <button>
