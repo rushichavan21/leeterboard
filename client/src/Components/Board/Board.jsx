@@ -201,39 +201,12 @@ const Board = () => {
 
   useEffect(() => {
     // Only fetch leetcode data if arrayData changes and we don't have existing data
-    if (arrayData.length > 0 && leetcodeData.length === 0) {
+    if (arrayData.length > 0) {
       fetchLeetcodeData();
     }
   }, [arrayData]);
 
-  // Add periodic refresh (optional)
-  useEffect(() => {
-    // Refresh data every 5 minutes if the page is active
-    const refreshInterval = setInterval(() => {
-      if (document.visibilityState === 'visible') {
-        fetchLeetcodeData();
-      }
-    }, 5 * 60 * 1000); // 5 minutes
 
-    return () => clearInterval(refreshInterval);
-  }, []);
-
-  // Add visibility change handler (optional)
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        // Refresh data when tab becomes visible after being hidden for > 5 minutes
-        const lastUpdate = localStorage.getItem('lastDataUpdate');
-        const now = Date.now();
-        if (lastUpdate && (now - parseInt(lastUpdate)) > 5 * 60 * 1000) {
-          fetchLeetcodeData();
-        }
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, []);
 
   return (
     <div
