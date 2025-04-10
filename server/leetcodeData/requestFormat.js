@@ -90,7 +90,6 @@ exports.validUsername=async(req,res)=>{
 
 exports.leetcodeData = async (req, res) => {
     let user = req.params.id;
-
     try {
         const response = await fetch('https://leetcode.com/graphql', {
             method: 'POST',
@@ -154,5 +153,4 @@ exports.leetcodeData = async (req, res) => {
         res.status(500).json({ error: 'Server error or LeetCode API unreachable', details: err });
     }
 };
-
 
