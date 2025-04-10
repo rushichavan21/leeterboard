@@ -24,6 +24,7 @@ import {
   Lock,
   LogOutIcon,
   UnlockKeyhole,
+  StarIcon,
 } from "lucide-react";
 
 const navigationItems = [
@@ -31,7 +32,7 @@ const navigationItems = [
   { title: "Interview", icon: Inbox, task: "discuss", path: "/discuss" },
   { title: "Snap", icon: CameraIcon, task: "Snap", path: "/generate_snap" },
   { title: "Public Room", icon: UnlockKeyhole, task: "Public", comingSoon: true },
-  { title: "VJTI CUSTOM", icon: Lock, task: "Private", comingSoon: true },
+  { title: "VJTI CUSTOM", icon: StarIcon, task: "VjtiCustom",path:"/vjti"},
   { title: "Logout", icon: LogOutIcon, task: "logout" },
 ];
 
