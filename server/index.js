@@ -131,7 +131,7 @@ app.post("/addUsername", authMiddleware, async (req, res) => {
       .json({ error: "An error occurred while adding the username" });
   }
 });
-
+-
 // GET THE USERNAMES ARRAY FROM THE DATABASE
 app.get("/getArray", authMiddleware, async (req, res) => {
   const userId = req.user;
@@ -182,7 +182,36 @@ app.delete("/removeUsername", authMiddleware, async (req, res) => {
   }
 });
 
+// development mode
+const supabase=require("./supaDB/config")
+const cron = require("node-cron");
+const updateLeetCodeData = require("./cron/cronjob");
 
+cron.schedule("*/15 * * * *", () => {
+  console.log(" Running 15-minute cron job for LeetCode sync...");
+  updateLeetCodeData();
+});
+app.get("/manual-sync", async (req, res) => {
+    await updateLeetCodeData();
+  });
+  
+app.get("/all-users", async (req, res) => {
+  try {
+    const { data, error } = await supabase
+      .from("LeeterBoard-usernames")
+      .select("*");
+
+    if (error) {
+      console.error("Supabase fetch error:", error.message);
+      return res.status(500).json({ error: "Failed to fetch data", details: error.message });
+    }
+
+    res.json(data);
+  } catch (err) {
+    console.error("Server error:", err.message);
+    res.status(500).json({ error: "Server error", details: err.message });
+  }
+});  
 // INIT DATABASE AND HOST ON A PORT
 mongoose
   .connect(process.env.MONGO_URI)
