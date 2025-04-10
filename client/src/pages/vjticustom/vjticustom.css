@@ -1,0 +1,26 @@
+.vjti--wrapper{
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0.5rem 2.5rem 0.5rem .0rem; */
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(8px); 
+    z-index: 1000; 
+}
+.sidebar--div{
+    position: fixed;
+    top: 3.5rem;
+    z-index: 99;
+  }
+  .vjti-content{
+    position: fixed;
+    width:90%;
+    left: 5rem;
+    /* right: 5rem; */
+    top: 7rem;
+       height: auto;
+  }
