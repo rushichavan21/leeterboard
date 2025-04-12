@@ -61,3 +61,7 @@ export const roomLeetcodeDataAtom=atom({
     key:"roomLeetcodeDataAtom",
     default:[],
 })
+export const orderbyAtom=atom({
+    key:"orderbyAtom",
+    default:"total-questions",
+})

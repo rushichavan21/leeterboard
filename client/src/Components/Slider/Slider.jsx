@@ -28,11 +28,11 @@ import {
 } from "lucide-react";
 
 const navigationItems = [
-  { title: "Home", icon: Home, task: "Home", path: "/" },
+  { title: "VJTI CUSTOM", icon: StarIcon, task: "VjtiCustom",path:"/"},
   { title: "Interview", icon: Inbox, task: "discuss", path: "/discuss" },
   { title: "Snap", icon: CameraIcon, task: "Snap", path: "/generate_snap" },
   { title: "Public Room", icon: UnlockKeyhole, task: "Public", comingSoon: true },
-  { title: "VJTI CUSTOM", icon: StarIcon, task: "VjtiCustom",path:"/vjti"},
+  { title: "Home", icon: Home, task: "Home", path: "/home" },
   { title: "Logout", icon: LogOutIcon, task: "logout" },
 ];
 
