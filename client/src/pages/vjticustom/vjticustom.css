@@ -1,5 +1,5 @@
 .vjti--wrapper{
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -10,6 +10,7 @@
     backdrop-filter: blur(4px); 
     -webkit-backdrop-filter: blur(8px); 
     z-index: 1000; 
+    border: 1px solid red;
 }
 .sidebar--div{
     position: fixed;
@@ -17,10 +18,17 @@
     z-index: 99;
   }
   .vjti-content{
-    position: fixed;
-    width:90%;
-    left: 5rem;
-    /* right: 5rem; */
-    top: 7rem;
-       height: auto;
+width: 100%;
+z-index: 99;
+  }
+  .card-last{
+    display: flex;
+    align-items: center;
+  }
+  .Rating-div{
+    font-weight: 500;
+    color: chartreuse;
+    padding-right: 10px;
+    text-decoration: underline;
+    text-decoration-color: rgb(35, 72, 72);
   }

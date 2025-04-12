@@ -2,6 +2,7 @@ import React from 'react'
 import { useRecoilValue } from 'recoil'
 import { loadingAtom } from '@/Atoms/Atoms'
 import "./vjticustom.css"
+ '../../Styles/loader.css'
 import NewNav from '@/Components/Navbar/Navbar'
 import Slider from '@/Components/Slider/Slider'
 import Halo from '@/Components/Halo/Halo'
@@ -20,13 +21,14 @@ const Loader=()=>{
 const VjtiCustom = () => {
     const isLoading=useRecoilValue(loadingAtom);
   return (
-    <div className='vjti--wrapper'>
+    <div className='newhome--wrapper'>
       <NewNav/>
       <div className="sidebar--div"> 
     <Slider/>
     </div>
     <div className="vjti-content">
-    {/* <Halo/> */}
+    {isLoading?<Loader/>:null}
+    <Halo/>
     <NewBoard/>
     </div>
     </div>
