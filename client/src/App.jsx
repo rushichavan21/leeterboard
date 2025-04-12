@@ -19,8 +19,8 @@ const App = () => {
       <Routes>
         <Route path='/login' element={!user? <Login/>:<Navigate to="/"/>}/>
         <Route path='/signup' element={!user?<SignupPage/>:<Navigate to='/'/>}/>
-        <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>
-        <Route path='/vjti' element={user?<Vjticustom/>:<Navigate to="/login"/>}/>
+        <Route path='/' element={user?<Vjticustom/>:<Navigate to="/login"/>}/>
+        <Route path='/vjti' element={user?<Home/>:<Navigate to="/login"/>}/>
         <Route path='/generate_snap' element={user?<SnapPage/>:<Navigate to="/login"/>}/>
         <Route path='/discuss' element={user?<Discuss/>:<Navigate to="/login"/>}/>
         <Route path='/experience/:id' element={user?<Experience/>:<Navigate to="/login"/>}/>
