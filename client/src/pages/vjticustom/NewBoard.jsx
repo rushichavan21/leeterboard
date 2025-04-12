@@ -26,8 +26,7 @@ const NewBoard = () => {
     const fetchData = async () => {
       try {
         setIsLoading(1);
-        const response = await axios.get("http://localhost:3000/all-users");
-       
+        const response = await axios.get(`${ import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/all-users`);
       const sortedData = response.data.sort((a, b) => b.totalSolved - a.totalSolved);
 
     setLeetcodeData(sortedData);
