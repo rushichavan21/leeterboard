@@ -164,6 +164,13 @@ body::before {
   .sidebar--icons {
     padding-top: 3rem;
   }
+  .halo-btn{
+    font-size: 0.8rem;
+  }
+  .Rating-div{
+    padding-right: 2rem;
+  }
+
 }
 
 /* sm */
@@ -204,6 +211,14 @@ body::before {
   .sidebar--icons {
     padding-top: 3rem;
   }
+  .halo-logo{
+    height: 6rem;
+  }
+  .halo-options{
+  flex-direction: column;
+  }
+  .halo-msg p{font-size: 14px;}
+  .halo-msg2 p{font-size: 14px;}
 }
 
 /* xs */
@@ -393,6 +408,20 @@ body::before {
   #visit,
   #remove {
     transform: scale(0.7);
+  }
+  .halo-logo{
+  margin-top: 3rem;
+  height: 6rem;
+
+  }
+  .halo-options{
+  flex-direction: column;
+  transform: scale(0.9);
+  }
+  .halo-msg p{font-size: 14px;}
+  .halo-msg2 p{font-size: 14px;}
+  .label2{
+    display: none;
   }
 }
 @layer base {

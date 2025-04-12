@@ -1,0 +1,100 @@
+.halo-wrapper{
+    display: flex;
+  width: 100%;
+  margin-top: 3rem;
+  flex-direction: column;
+  background-size: cover;
+ background-repeat: no-repeat;
+  background-position: center; 
+}
+.halo-logo{
+    height: 8rem;
+
+}
+.logo-holder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.halo-options{
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding: 1rem;
+}
+.halo-options {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   
+}  
+  .halo-options select,
+  .halo-options input {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid #3b3737;
+
+    background-color: black;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+  
+  .halo-label{
+    font-size: 1rem;
+    font-weight: 500;;
+  }
+  .orderby-options{
+    font-weight: 300;
+  }
+  .halo-msg{
+    /* border: 1px solid red; */
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .halo-msg p{
+    font-weight: 300;
+    padding:0 1rem;
+    font-size: 1.2rem;
+  }
+  .halo-btn{
+    border: 2px solid brown;
+    background-color: #1b2b3b;
+    border-radius: 10px;
+    font-weight: 300;
+    padding: 2px 5px;
+  }
+  .halo-btn:hover{
+    background-color: #04101c;
+    border: 2px solid yellowgreen;
+  }
+  .halo-msg2{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .halo-msg2 p{
+font-size: 1rem;
+  font-weight: 200;
+  font-style: italic;
+  }
+  .msg2-anchor{
+    color: rgb(106, 180, 255);
+    font-weight: 200;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: aqua;
+    text-decoration-thickness:1px;
+  }

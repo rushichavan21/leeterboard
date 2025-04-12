@@ -4,7 +4,7 @@ import { useAuthContext } from "../../Hooks/useAuthContext";
 import { Button } from "@/Components/ui/button"
 import { useToast } from "../../Hooks/use-toast";
 import { useTheme} from "@/Context/theme-provider";
-
+import "./Vjticustom.css"
 const ProgressBar = ({ progress, styles,numerator,denominator}) => {
     return (
       <div className="progress-bar-container ">
@@ -19,7 +19,7 @@ const ProgressBar = ({ progress, styles,numerator,denominator}) => {
   };
   
 
-const NewCard = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard}) => {
+const NewCard = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolved,totalEasy,totalMedium,totalHard,rating}) => {
   const { user } = useAuthContext();
   const token = user.token;
   const { toast } = useToast();
@@ -46,7 +46,8 @@ const NewCard = ({username,rank,totalQuestions,easySolved,mediumSolved,hardSolve
         <h3>Total Questions: <span className={`${theme==="light"?"totalQuestionsLight":"totalQuestionsDark"}`}>{totalQuestions}</span></h3>
         </div>
        
-        <div className="buttonsDiv">
+        <div className="card-last">
+          <div className='Rating-div'>{`Rating: ${rating}`} </div>
         <Button variant="outline" id={`visit`} onClick={handleVisit}>Visit</Button>
         </div>
     
