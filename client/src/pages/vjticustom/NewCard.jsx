@@ -4,7 +4,7 @@ import { useAuthContext } from "../../Hooks/useAuthContext";
 import { Button } from "@/Components/ui/button"
 import { useToast } from "../../Hooks/use-toast";
 import { useTheme} from "@/Context/theme-provider";
-import "./Vjticustom.css"
+import "./vjticustom.css"
 const ProgressBar = ({ progress, styles,numerator,denominator}) => {
     return (
       <div className="progress-bar-container ">
