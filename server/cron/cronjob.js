@@ -1,4 +1,5 @@
 const path = require("path");
+require("dotenv").config();
 const { pathToFileURL } = require("url");
 const supabase = require("../supaDB/config");
 
@@ -15,17 +16,73 @@ const getUsernames = async () => {
   return data.map((row) => row.Username);
 };
 
+// const updateLeetCodeData = async () => {
+//   const usernames = await getUsernames();
+//   const modulePath = path.resolve(__dirname, "../leetcodeData/newReq.mjs");
+//   const moduleURL = pathToFileURL(modulePath);
+//   const { getLeetcodeData } = await import(moduleURL.href);
+
+//   for (const username of usernames) {
+//     try {
+//       const info = await getLeetcodeData(username);
+//       console.log(info);
+//       if (!info) continue;
+
+//       let {
+//         totalSolved,
+//         easy,
+//         medium,
+//         hard,
+//         rating,
+//         contests,
+//       } = info;
+      
+//       rating = Number(rating.toFixed(2));
+//       const { error } = await supabase
+//         .from("LeeterBoard-usernames")
+//         .update({
+//           totalSolved,
+//           easy: easy,
+//           medium: medium,
+//           hard: hard,
+//           rating,
+//           contests: contests,
+//         })
+//         .eq("Username", username);
+//       if (error) {
+//         console.error(`Error updating ${username}:`, error.message);
+//       } else {
+//         console.log(`Updated ${username}`);
+//       }
+//     } catch (err) {
+//       console.error(`Failed for ${username}:`, err.message);
+//     }
+//   }
+// };
+const axios = require("axios");
+
+const sendDiscordMessage = async (message) => {
+  const webhookUrl = `${process.env.DISCORD_WEBHOOK}`; 
+  try {
+    await axios.post(webhookUrl, { content: message });
+  } catch (error) {
+    console.error(" Discord webhook error:", error.message);
+  }
+};
+
 const updateLeetCodeData = async () => {
   const usernames = await getUsernames();
   const modulePath = path.resolve(__dirname, "../leetcodeData/newReq.mjs");
   const moduleURL = pathToFileURL(modulePath);
   const { getLeetcodeData } = await import(moduleURL.href);
 
+  let summary = `📊 **Leeterboard Updates :**\n`;
+  let changedUsersCount = 0;
+
   for (const username of usernames) {
     try {
-      const info = await getLeetcodeData(username);
-      console.log(info);
-      if (!info) continue;
+      const newInfo = await getLeetcodeData(username);
+      if (!newInfo) continue;
 
       let {
         totalSolved,
@@ -34,29 +91,66 @@ const updateLeetCodeData = async () => {
         hard,
         rating,
         contests,
-      } = info;
-      
+      } = newInfo;
+
       rating = Number(rating.toFixed(2));
-      const { error } = await supabase
+
+      const { data: oldData, error: fetchErr } = await supabase
+        .from("LeeterBoard-usernames")
+        .select("totalSolved, easy, medium, hard, rating")
+        .eq("Username", username)
+        .single();
+
+      if (fetchErr || !oldData) {
+        console.error(`Fetch error for ${username}:`, fetchErr?.message);
+        continue;
+      }
+
+      const changes = [];
+
+      if (totalSolved !== oldData.totalSolved)
+        changes.push(`   🧠 Total: ${oldData.totalSolved} → ${totalSolved} (${totalSolved - oldData.totalSolved > 0 ? "+" : ""}${totalSolved - oldData.totalSolved})`);
+      if (easy !== oldData.easy)
+        changes.push(`   🟢 Easy: ${oldData.easy} → ${easy} (${easy - oldData.easy > 0 ? "+" : ""}${easy - oldData.easy})`);
+      if (medium !== oldData.medium)
+        changes.push(`   🟠 Medium: ${oldData.medium} → ${medium} (${medium - oldData.medium > 0 ? "+" : ""}${medium - oldData.medium})`);
+      if (hard !== oldData.hard)
+        changes.push(`   🔴 Hard: ${oldData.hard} → ${hard} (${hard - oldData.hard > 0 ? "+" : ""}${hard - oldData.hard})`);
+      if (rating !== oldData.rating)
+        changes.push(`   📊 Rating: ${oldData.rating} → ${rating} (${(rating - oldData.rating > 0 ? "+" : "") + (rating - oldData.rating).toFixed(2)})`);
+
+      if (changes.length > 0) {
+        summary += `👤 ${username}\n` + changes.join("\n") + `\n\n`;
+        changedUsersCount++;
+      }
+
+      const { error: updateErr } = await supabase
         .from("LeeterBoard-usernames")
         .update({
           totalSolved,
-          easy: easy,
-          medium: medium,
-          hard: hard,
+          easy,
+          medium,
+          hard,
           rating,
-          contests: contests,
+          contests,
         })
         .eq("Username", username);
-      if (error) {
-        console.error(`Error updating ${username}:`, error.message);
-      } else {
-        console.log(`Updated ${username}`);
+
+      if (updateErr) {
+        console.error(`Error updating ${username}:`, updateErr.message);
       }
     } catch (err) {
       console.error(`Failed for ${username}:`, err.message);
     }
   }
+
+  if (changedUsersCount > 0) {
+    summary += `✅ Synced ${changedUsersCount} user${changedUsersCount > 1 ? "s" : ""}.`;
+    await sendDiscordMessage(summary);
+  } else {
+    console.log("ℹ️ No changes to sync.");
+  }
 };
+
 
 module.exports = updateLeetCodeData;
