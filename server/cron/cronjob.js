@@ -16,49 +16,6 @@ const getUsernames = async () => {
   return data.map((row) => row.Username);
 };
 
-// const updateLeetCodeData = async () => {
-//   const usernames = await getUsernames();
-//   const modulePath = path.resolve(__dirname, "../leetcodeData/newReq.mjs");
-//   const moduleURL = pathToFileURL(modulePath);
-//   const { getLeetcodeData } = await import(moduleURL.href);
-
-//   for (const username of usernames) {
-//     try {
-//       const info = await getLeetcodeData(username);
-//       console.log(info);
-//       if (!info) continue;
-
-//       let {
-//         totalSolved,
-//         easy,
-//         medium,
-//         hard,
-//         rating,
-//         contests,
-//       } = info;
-      
-//       rating = Number(rating.toFixed(2));
-//       const { error } = await supabase
-//         .from("LeeterBoard-usernames")
-//         .update({
-//           totalSolved,
-//           easy: easy,
-//           medium: medium,
-//           hard: hard,
-//           rating,
-//           contests: contests,
-//         })
-//         .eq("Username", username);
-//       if (error) {
-//         console.error(`Error updating ${username}:`, error.message);
-//       } else {
-//         console.log(`Updated ${username}`);
-//       }
-//     } catch (err) {
-//       console.error(`Failed for ${username}:`, err.message);
-//     }
-//   }
-// };
 const axios = require("axios");
 
 const sendDiscordMessage = async (message) => {
@@ -94,13 +51,13 @@ const updateLeetCodeData = async () => {
       } = newInfo;
 
       rating = Number(rating.toFixed(2));
-
+     console.log(newInfo);
       const { data: oldData, error: fetchErr } = await supabase
         .from("LeeterBoard-usernames")
         .select("totalSolved, easy, medium, hard, rating")
         .eq("Username", username)
         .single();
-
+      console.log(oldData);
       if (fetchErr || !oldData) {
         console.error(`Fetch error for ${username}:`, fetchErr?.message);
         continue;
