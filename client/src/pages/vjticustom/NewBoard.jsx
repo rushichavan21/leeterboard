@@ -53,7 +53,7 @@ const NewBoard = () => {
   }, [order]); 
 
   return (
-    <div className={`BoardWrapper container ${theme === "light" ? "lightBoard" : "darkBoard"}`}>
+    <div className={`BoardWrapper container`}>
       {leetcodeData.length === 0 ? (
         <div className="AddUserNameMessage">
           <h1>

@@ -136,8 +136,8 @@ width: 100%;
   width: 100%;
   z-index: 10;
   overflow: hidden;
-  backdrop-filter: blur(10px); /* Adjust the blur intensity */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  /* backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);  */
 }
 
 /* Media Queries */

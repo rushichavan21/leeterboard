@@ -35,7 +35,7 @@ const Halo = () => {
       <button className="halo-btn">Hard Update</button>
       </div>
       <div className="halo-msg2"><p>Want your name on leeterboard?</p>
-      <a href="" className="msg2-anchor">Click here</a>
+      <a href="" className="msg2-anchor" onClick={()=>{window.open("https://docs.google.com/forms/d/e/1FAIpQLSeeNzLZ--OEKLqAaRjZqPW3VIG74LQy1341UQIjJKpHj0R4oQ/viewform?usp=sharing","_blank", "noopener noreferrer")}}>Click here</a>
       </div>
     </div>
   );

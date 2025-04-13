@@ -9,7 +9,6 @@ const Navbar = () => {
             <img src="/logo.svg" alt="logo" />
             <h3>LeeterBoard</h3>
         </div>
-        <ModeToggle className="modeSwitch"/>
     </div>
   )
 }
