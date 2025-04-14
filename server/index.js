@@ -192,10 +192,15 @@ cron.schedule("*/15 * * * *", () => {
   updateLeetCodeData();
 });
 app.get("/manual-sync", async (req, res) => {
-  res.status(202).send("Sync started"); 
-  updateLeetCodeData()
-    .then(() => console.log(" Sync completed"))
-    .catch((err) => console.error("Sync failed:", err));
+  res.status(202).send(" Sync started!");
+  try {
+    await updateLeetCodeData();
+    res.status(200).send("Done");
+    console.log(" Sync completed");
+  } catch (err) {
+    res.status(404).send("failed");
+    console.error(" Sync failed:", err.message);
+  }
 });
 
   

@@ -26,7 +26,6 @@ const sendDiscordMessage = async (message) => {
     console.error(" Discord webhook error:", error.message);
   }
 };
-
 const updateLeetCodeData = async () => {
   const usernames = await getUsernames();
   const modulePath = path.resolve(__dirname, "../leetcodeData/newReq.mjs");
@@ -35,32 +34,24 @@ const updateLeetCodeData = async () => {
 
   let summary = `📊 **Leeterboard Updates :**\n`;
   let changedUsersCount = 0;
-
-  for (const username of usernames) {
+  res.send("inside function");
+  const tasks = usernames.map(async (username) => {
     try {
       const newInfo = await getLeetcodeData(username);
-      if (!newInfo) continue;
+      if (!newInfo) return;
 
-      let {
-        totalSolved,
-        easy,
-        medium,
-        hard,
-        rating,
-        contests,
-      } = newInfo;
-
+      let { totalSolved, easy, medium, hard, rating, contests } = newInfo;
       rating = Number(rating.toFixed(2));
-     console.log(newInfo);
+
       const { data: oldData, error: fetchErr } = await supabase
         .from("LeeterBoard-usernames")
         .select("totalSolved, easy, medium, hard, rating")
         .eq("Username", username)
         .single();
-      console.log(oldData);
+
       if (fetchErr || !oldData) {
         console.error(`Fetch error for ${username}:`, fetchErr?.message);
-        continue;
+        return;
       }
 
       const changes = [];
@@ -83,14 +74,7 @@ const updateLeetCodeData = async () => {
 
       const { error: updateErr } = await supabase
         .from("LeeterBoard-usernames")
-        .update({
-          totalSolved,
-          easy,
-          medium,
-          hard,
-          rating,
-          contests,
-        })
+        .update({ totalSolved, easy, medium, hard, rating, contests })
         .eq("Username", username);
 
       if (updateErr) {
@@ -99,7 +83,9 @@ const updateLeetCodeData = async () => {
     } catch (err) {
       console.error(`Failed for ${username}:`, err.message);
     }
-  }
+  });
+
+  await Promise.all(tasks);
 
   if (changedUsersCount > 0) {
     summary += `✅ Synced ${changedUsersCount} user${changedUsersCount > 1 ? "s" : ""}.`;
