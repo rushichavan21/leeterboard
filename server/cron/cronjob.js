@@ -34,7 +34,6 @@ const updateLeetCodeData = async () => {
 
   let summary = `📊 **Leeterboard Updates :**\n`;
   let changedUsersCount = 0;
-  res.send("inside function");
   const tasks = usernames.map(async (username) => {
     try {
       const newInfo = await getLeetcodeData(username);
