@@ -191,15 +191,17 @@ cron.schedule("*/15 * * * *", () => {
   console.log(" Running 15-minute cron job for LeetCode sync...");
   updateLeetCodeData();
 });
+
 app.get("/manual-sync", async (req, res) => {
-  res.status(202).send(" Sync started!");
+  console.log("Manual sync triggered...");
+
   try {
     await updateLeetCodeData();
-    res.status(200).send("Done");
-    console.log(" Sync completed");
+    console.log("Sync completed successfully!");
+    res.status(200).send(" Sync completed");
   } catch (err) {
-    res.status(404).send("failed");
-    console.error(" Sync failed:", err.message);
+    console.error("Sync failed:", err.message);
+    res.status(500).send("Sync failed");
   }
 });
 
