@@ -87,10 +87,9 @@ const updateLeetCodeData = async () => {
   await Promise.all(tasks);
 
   if (changedUsersCount > 0) {
-    summary += `✅ Synced ${changedUsersCount} user${changedUsersCount > 1 ? "s" : ""}.`;
     await sendDiscordMessage(summary);
   } else {
-    console.log("ℹ️ No changes to sync.");
+    console.log("No changes to sync.");
   }
 };
 
