@@ -7,6 +7,7 @@ import NewNav from '@/Components/Navbar/Navbar'
 import Slider from '@/Components/Slider/Slider'
 import Halo from '@/Components/Halo/Halo'
 import NewBoard from './NewBoard'
+import { Toaster } from '@/Components/ui/toaster'
 const Loader=()=>{
   return(
     
@@ -31,6 +32,7 @@ const VjtiCustom = () => {
     <Halo/>
     <NewBoard/>
     </div>
+    <Toaster/>
     </div>
   )
 }

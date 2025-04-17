@@ -1,8 +1,38 @@
 import { useRecoilState } from "recoil";
 import "./Halo.css";
-import { orderbyAtom } from "@/Atoms/Atoms";
+import { orderbyAtom ,loadingAtom } from "@/Atoms/Atoms";
+import axios from "axios";
+import { useToast } from "@/Hooks/use-toast";
 const Halo = () => {
   const [order,setorder]=useRecoilState(orderbyAtom);
+  const [loading ,setIsLoading]=useRecoilState(loadingAtom);
+  const { toast } = useToast();
+  const handlehard=async () => {
+   try {
+    setIsLoading(1);
+    const response=await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/hardupdate`);
+    setIsLoading(0);
+    if(response){
+      toast({
+        title: `Hard update successfull`
+      });
+      console.log("Hard update successfull")
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+     
+    }
+   } catch (error) {
+    setIsLoading(0);
+    toast({
+      title: `Hard update unsuccessfull`
+    });
+    console.log("Hard update unsuccessfull")
+   }
+
+    }
+  
+
   return (
     <div className="halo-wrapper">
       <div className="logo-holder">
@@ -32,7 +62,7 @@ const Halo = () => {
 </div>
       </div>
       <div className="halo-msg"><p>This Info Updates Automaticaly Every 15 Minutes</p>
-      <button className="halo-btn">Hard Update</button>
+      <button className="halo-btn" onClick={handlehard}>Hard Update</button>
       </div>
       <div className="halo-msg2"><p>Want your name on leeterboard?</p>
       <a href="" className="msg2-anchor" onClick={()=>{window.open("https://docs.google.com/forms/d/e/1FAIpQLSeeNzLZ--OEKLqAaRjZqPW3VIG74LQy1341UQIjJKpHj0R4oQ/viewform?usp=sharing","_blank", "noopener noreferrer")}}>Click here</a>

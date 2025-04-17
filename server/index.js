@@ -223,6 +223,14 @@ app.get("/all-users", async (req, res) => {
     res.status(500).json({ error: "Server error", details: err.message });
   }
 });  
+app.get("/hardupdate" ,async(req,res)=>{
+  try {
+    await updateLeetCodeData();
+    return res.status(200).send("sucess");
+  } catch (error) {
+    res.status(500).send("error");
+  }
+})
 // INIT DATABASE AND HOST ON A PORT
 mongoose
   .connect(process.env.MONGO_URI)
