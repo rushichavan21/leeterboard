@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef ,useEffect} from "react";
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import axios from "axios";
 import { toJpeg } from "html-to-image";
@@ -12,6 +12,8 @@ import SnapComponent from "@/Components/SnapComponent/SnapComponent";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { useTheme} from "@/Context/theme-provider";
+import { snapHolder } from "../../Atoms/Atoms";
+
 const Loader=()=>{
   return(
     <div className="loaderDiv">
@@ -28,11 +30,13 @@ const SnapPage = () => {
   const [profileStatsData, setProfileStatsData] = useState("");
   const [username, setUsername] = useState("");
   const [showDownloadButton, setShowDownloadButton] = useState(false);
+  const snapHolderval = useRecoilValue(snapHolder);
   const setIsLoading=useSetRecoilState(loadingAtom);
   const isLoading=useRecoilValue(loadingAtom);
   const snapDivRef = useRef(null);
   const {theme}=useTheme();
-  const QuestionStats = async () => {
+  
+  const QuestionStats = async () => {   
     const trimmedUsername = username.trim();
     if (trimmedUsername === "") {
       console.warn("Username cannot be empty.");
@@ -106,6 +110,11 @@ setIsLoading(1);
     console.log("done with fetching Questions stats");
     console.log(profileStatsData);
   };
+  useEffect(() => {
+  if (snapHolderval !== "") {
+    setUsername(snapHolderval);
+  }
+}, [snapHolderval]);
 
   const handleDownload = useCallback(() => {
     if (!snapDivRef.current) return;

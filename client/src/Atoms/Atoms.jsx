@@ -65,3 +65,7 @@ export const orderbyAtom=atom({
     key:"orderbyAtom",
     default:"total-questions",
 })
+export const snapHolder=atom({
+    key:"snapHolderAtom",
+    default:"",
+})

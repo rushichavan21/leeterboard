@@ -53,6 +53,7 @@ border-width: 2px;
 }
 .downloadButton button{
     color: rgb(0, 0, 0);
+    background-color: rgba(128, 255, 0, 0.7);
 }
 .downloadButton button:hover{
     background-color: chartreuse;
