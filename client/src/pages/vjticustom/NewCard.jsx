@@ -74,11 +74,13 @@ const handleSnapHolder = () => {
 
         <div className="card-last">
           <div className="Rating-div">Rating: {rating}</div>
+          <div className="vis-snp-btn">
           <Button variant="outline" className="mr-2" onClick={handleVisit} id="visit">
             Visit
           </Button>
-        <Button variant="outline" onClick={handleSnapHolder} >Snap</Button>
+        <Button variant="outline" id="visit"  onClick={handleSnapHolder} >Snap</Button>
         </div>
+          </div>
       </div>
 
       <div className="stats">
