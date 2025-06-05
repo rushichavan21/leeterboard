@@ -3,6 +3,8 @@ require("dotenv").config();
 const { pathToFileURL } = require("url");
 const supabase = require("../supaDB/config");
 
+
+
 const getUsernames = async () => {
   const { data, error } = await supabase
     .from("LeeterBoard-usernames")
