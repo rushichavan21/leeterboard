@@ -92,6 +92,8 @@ app.get("/data", (req, res) => {
 app.get("/data/:id", leetcode.leetcodeData);
 app.get("/validUsername/:id",leetcode.validUsername);
 
+
+
 // ADDS A NEW USERNAME TO USERNAMES ARRAY
 app.post("/addUsername", authMiddleware, async (req, res) => {
   const { username } = req.body;
